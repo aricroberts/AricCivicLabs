@@ -55,19 +55,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.875rem 2rem;display
 .mtag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;border:1px solid}
 
 /* WHAT WE BUILD — completely different layout */
-.build-section{background:var(--ink);color:#fff;padding:6rem 2rem;position:relative;overflow:hidden}
+.build-section{background:#0D1F2D;color:#fff;padding:6rem 2rem;position:relative;overflow:hidden}
 .build-inner{max-width:1100px;margin:0 auto}
 .build-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
-.build-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:3rem}
+.build-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:3rem;text-shadow:0 2px 20px rgba(0,0,0,.3)}
 .build-h2 em{font-style:italic;color:var(--c3)}
-.build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:16px;overflow:hidden}
-.build-item{background:var(--ink);padding:2rem;position:relative}
-.build-item:hover{background:#1a1a2e}
+.build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-radius:16px;overflow:visible}
+.build-item{background:#112233;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:2.5rem;position:relative}
+.build-item:hover{background:#1a3045;border-color:rgba(42,157,143,.4)}
 .build-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.2);margin-bottom:1rem}
-.build-icon{font-size:2rem;margin-bottom:.875rem;display:block}
-.build-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;font-style:italic;color:#fff;margin-bottom:.625rem}
-.build-desc{font-size:13px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.5)}
-.build-link{display:inline-flex;align-items:center;gap:.4rem;font-size:12px;font-weight:600;color:var(--c3);text-decoration:none;margin-top:1rem}
+.build-icon{font-size:2.75rem;margin-bottom:1rem;display:block}
+.build-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;font-style:italic;color:#fff;margin-bottom:.75rem;line-height:1.2}
+.build-desc{font-size:15px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.7);margin-top:.5rem}
+.build-link{display:inline-flex;align-items:center;gap:.5rem;font-size:14px;font-weight:600;color:var(--c3);text-decoration:none;margin-top:1.25rem;padding:8px 0}
 .build-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:.5rem;vertical-align:middle}
 .badge-live{background:rgba(42,157,143,.2);color:var(--c3);border:1px solid rgba(42,157,143,.3)}
 .badge-soon{background:rgba(255,255,255,.06);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1)}
@@ -171,7 +171,10 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
     <a href="#founder">Founder</a>
     <a href="#contact">Contact</a>
   </div>
-  <a href="https://receipts.aricciviclabs.org" class="nav-cta">receipts. →</a>
+  <div style="display:flex;gap:.5rem;align-items:center">
+    <a href="https://receipts.aricciviclabs.org/#transitions" class="nav-cta" style="background:var(--c3)">Transitions →</a>
+    <a href="https://receipts.aricciviclabs.org" class="nav-cta">receipts. →</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -182,7 +185,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
   </div>
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-eyebrow reveal">Civic technology studio</div>
+      <div class="hero-eyebrow reveal">AricCivicLabs.Org</div>
       <h1 class="hero-h1 reveal">
         Built for the people<br>doing the <em>actual work.</em>
       </h1>
@@ -221,7 +224,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
       <div class="build-item">
         <div class="build-num">01</div>
         <span class="build-icon">🧾</span>
-        <div class="build-title">receipts.<span class="build-badge badge-live">Live now</span></div>
+        <div class="build-title">receipts.<span class="build-badge badge-live" style="font-size:12px;padding:3px 10px;margin-left:.5rem">Live now</span></div>
         <p class="build-desc">An AI-powered ROI engine with four specialized tools — for employees, small business owners, nonprofits, and teams. Calculates your impact in dollars. Exports documents that open doors.</p>
         <a href="https://receipts.aricciviclabs.org" class="build-link">Open receipts. →</a>
       </div>
@@ -229,7 +232,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
       <div class="build-item">
         <div class="build-num">02</div>
         <span class="build-icon">🔄</span>
-        <div class="build-title">Transitions toolkit<span class="build-badge badge-live">Live now</span></div>
+        <div class="build-title">Transitions toolkit<span class="build-badge badge-live" style="font-size:12px;padding:3px 10px;margin-left:.5rem">Live now</span></div>
         <p class="build-desc">Eight tools for every career moment — entering, re-entering, and exiting the workforce, building equity, changing careers, and AI-powered coaching for motivation and communication.</p>
         <a href="https://receipts.aricciviclabs.org/#transitions" class="build-link">Explore transitions →</a>
       </div>
@@ -238,7 +241,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
         <div class="build-num">03</div>
         <span class="build-icon">⚡</span>
         <div class="build-title">Next tool<span class="build-badge badge-soon">In development</span></div>
-        <p class="build-desc">More civic tools in progress. Every product we build follows the same principles: free access to core features, private by design, AI-powered, and built for the people doing the work.</p>
+        <p class="build-desc">More tools in progress. Every product we build follows the same principles: free access to core features, private by design, AI-powered, and built for the people doing the work.</p>
       </div>
 
     </div>
@@ -249,25 +252,25 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
 <section class="problem" id="the-problem">
   <div class="problem-inner">
     <div class="problem-label reveal">The problem we're solving</div>
-    <h2 class="problem-h2 reveal">Most capable people<br>are also the quietest.</h2>
+    <h2 class="problem-h2 reveal">Everyone has value<br>that deserves to be <em>seen.</em></h2>
     <div class="problem-cols">
       <div>
-        <p class="problem-pull reveal">"I create great impact in many directions — but say nothing about it. Nobody notices."</p>
+        <p class="problem-pull reveal">"The gap is not about personality. It's about having the tools to prove what you've already done."</p>
         <div class="cycle-box reveal">
           <div style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.875rem">The cycle</div>
-          <div class="cycle-step"><span class="cycle-num">01</span><span class="cycle-text">You do meaningful, high-impact work quietly</span></div>
+          <div class="cycle-step"><span class="cycle-num">01</span><span class="cycle-text">You do meaningful, high-impact work — but struggle to articulate or document it</span></div>
           <div class="cycle-step"><span class="cycle-num">02</span><span class="cycle-text">Nobody notices because you never quantified or communicated it</span></div>
-          <div class="cycle-step"><span class="cycle-num">03</span><span class="cycle-text">Raises, promotions, grants, and recognition go to louder people — not necessarily better ones</span></div>
+          <div class="cycle-step"><span class="cycle-num">03</span><span class="cycle-text">Raises, promotions, grants, and recognition go to those who can prove their value — not always those who create the most of it</span></div>
           <div class="cycle-step"><span class="cycle-num">04</span><span class="cycle-text">Stagnation sets in. The gap widens. The cycle repeats.</span></div>
           <div class="cycle-break">AricCivicLabs.Org builds tools to break this cycle — starting with receipts.</div>
         </div>
       </div>
       <div class="problem-body reveal">
-        <p>The gap between <strong>what you actually do</strong> and <strong>what you can prove you do</strong> is one of the most consequential and least-discussed problems in working life.</p>
-        <p>It affects employees in performance reviews. Nonprofit leaders in grant applications. Small business owners making hiring decisions without data. Teams whose collective impact is never surfaced to leadership.</p>
+        <p>The gap between <strong>what you actually do</strong> and <strong>what you can prove you do</strong> is one of the most consequential and least-discussed challenges in working life — and it affects almost everyone.</p>
+        <p>It affects people across every role and working style. Nonprofit leaders in grant applications. Small business owners making hiring decisions without data. Teams whose collective impact is never surfaced to leadership.</p>
         <p>The tools to close this gap have historically required expensive consultants, proprietary software, or specialized expertise. <strong>We're changing that.</strong></p>
         <p>Our tools use AI to help you translate your work into honest, defensible numbers — and then into the documents, conversations, and cases that move people and organizations forward.</p>
-        <p style="font-size:13px;color:var(--text3)">We are a civic technology studio. That means we measure our success by the impact we enable in the lives of real people — not just revenue metrics.</p>
+        <p style="font-size:13px;color:var(--text3)">We are a AricCivicLabs.Org. That means we measure our success by the impact we enable in the lives of real people — not just revenue metrics.</p>
       </div>
     </div>
   </div>
@@ -288,7 +291,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
       <div class="founder-right">
         <div class="founder-label">The origin</div>
         <p class="founder-quote">
-          "I am a quiet, wildly capable introvert who creates great impact in many directions — but says nothing about it. <strong>That leads to career stagnation,</strong> and a vicious cycle begins. I built receipts. to break that cycle for myself first. Then I realized how many people live inside the same pattern."
+          "I create great impact in many directions — but struggled to speak up for it. <strong>That leads to career stagnation,</strong> and a vicious cycle begins. I built receipts. to break that cycle for myself first. Then I realized how many people — of every personality and background — live inside the same pattern."
         </p>
         <div class="founder-pillars">
           <div class="pillar" style="border-color:var(--c1)">
