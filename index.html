@@ -31,10 +31,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.875rem 2rem;display
 .nav-cta{font-size:13px;font-weight:600;color:#fff;background:var(--c5);padding:8px 20px;border-radius:99px;text-decoration:none;transition:all .2s}
 .nav-cta:hover{background:var(--c4);transform:translateY(-1px)}
 
-/* HERO — very different from receipts: split layout, bold left column */
+/* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 4rem 4rem;gap:4rem;position:relative;overflow:hidden;max-width:1200px;margin:0 auto}
-.hero-left{}
-.hero-right{position:relative}
 .hero-eyebrow{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c5);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
 .hero-eyebrow::after{content:'';flex:1;height:1px;background:var(--c5);opacity:.3}
 .hero-h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem}
@@ -45,7 +43,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.875rem 2rem;display
 .btn-p:hover{background:var(--c5);transform:translateY(-2px)}
 .btn-o{display:inline-flex;align-items:center;gap:.5rem;padding:12px 26px;border:2px solid var(--border);color:var(--text2);font-size:14px;font-weight:600;border-radius:99px;text-decoration:none;transition:all .25s}
 .btn-o:hover{border-color:var(--ink);color:var(--ink)}
-/* Hero right: stacked mission stats */
 .hero-manifesto{background:var(--ink);color:#fff;border-radius:20px;padding:2.5rem;position:relative;overflow:hidden}
 .hero-manifesto::before{content:'"';font-family:'Playfair Display',serif;font-size:16rem;font-weight:900;color:rgba(255,255,255,.04);position:absolute;top:-4rem;left:-1rem;line-height:1;pointer-events:none}
 .manifesto-text{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:400;font-style:italic;line-height:1.65;color:rgba(255,255,255,.9);margin-bottom:1.5rem;position:relative;z-index:1}
@@ -54,25 +51,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.875rem 2rem;display
 .manifesto-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.25rem}
 .mtag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;border:1px solid}
 
-/* WHAT WE BUILD — completely different layout */
+/* WHAT WE BUILD */
 .build-section{background:#0D1F2D;color:#fff;padding:6rem 2rem;position:relative;overflow:hidden}
 .build-inner{max-width:1100px;margin:0 auto}
 .build-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
 .build-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:3rem;text-shadow:0 2px 20px rgba(0,0,0,.3)}
 .build-h2 em{font-style:italic;color:var(--c3)}
-.build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-radius:16px;overflow:visible}
-.build-item{background:#112233;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:2.5rem;position:relative}
-.build-item:hover{background:#1a3045;border-color:rgba(42,157,143,.4)}
-.build-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.2);margin-bottom:1rem}
-.build-icon{font-size:2.75rem;margin-bottom:1rem;display:block}
-.build-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;font-style:italic;color:#fff;margin-bottom:.75rem;line-height:1.2}
-.build-desc{font-size:15px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.7);margin-top:.5rem}
-.build-link{display:inline-flex;align-items:center;gap:.5rem;font-size:14px;font-weight:600;color:var(--c3);text-decoration:none;margin-top:1.25rem;padding:8px 0}
-.build-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:.5rem;vertical-align:middle}
-.badge-live{background:rgba(42,157,143,.2);color:var(--c3);border:1px solid rgba(42,157,143,.3)}
-.badge-soon{background:rgba(255,255,255,.06);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1)}
 
-/* THE PROBLEM — newspaper column layout */
+/* Six-offering grid: 3-column on desktop */
+.build-grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.build-item{background:#112233;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:2rem;position:relative;transition:all .2s}
+.build-item:hover{background:#1a3045;border-color:rgba(42,157,143,.4)}
+.build-num{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.2);margin-bottom:.75rem}
+.build-icon{font-size:2.25rem;margin-bottom:.75rem;display:block}
+.build-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;font-style:italic;color:#fff;margin-bottom:.5rem;line-height:1.2}
+.build-tag{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:99px;margin-left:.5rem;vertical-align:middle;display:inline-block}
+.badge-live{background:rgba(42,157,143,.2);color:var(--c3);border:1px solid rgba(42,157,143,.3)}
+.badge-emerging{background:rgba(107,78,255,.15);color:#a89fff;border:1px solid rgba(107,78,255,.25)}
+.badge-soon{background:rgba(255,255,255,.06);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1)}
+.build-desc{font-size:14px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.65);margin-top:.5rem}
+.build-links{display:flex;flex-wrap:wrap;gap:.375rem;margin:.875rem 0}
+.bl{font-size:11px;padding:3px 9px;border-radius:99px;text-decoration:none;font-weight:600;border:1px solid}
+.bl-teal{background:rgba(42,157,143,.15);color:var(--c3);border-color:rgba(42,157,143,.25)}
+.bl-purple{background:rgba(107,78,255,.15);color:#a89fff;border-color:rgba(107,78,255,.25)}
+.bl-gold{background:rgba(244,162,97,.12);color:var(--c2);border-color:rgba(244,162,97,.25)}
+.bl-red{background:rgba(230,57,70,.12);color:#ff8a8a;border-color:rgba(230,57,70,.25)}
+.build-link{display:inline-flex;align-items:center;gap:.5rem;font-size:13px;font-weight:600;color:var(--c3);text-decoration:none;margin-top:.875rem;padding:6px 0}
+
+/* THE PROBLEM */
 .problem{padding:6rem 2rem;background:var(--paper2)}
 .problem-inner{max-width:1000px;margin:0 auto}
 .problem-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:1rem}
@@ -88,7 +94,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.875rem 2rem;display
 .cycle-text{font-size:13px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.65)}
 .cycle-break{background:rgba(42,157,143,.15);border:1px solid rgba(42,157,143,.3);border-radius:10px;padding:1rem 1.25rem;margin-top:1.25rem;font-size:13px;font-weight:500;color:var(--c3);line-height:1.6}
 
-/* FOUNDER — horizontal card */
+/* FOUNDER */
 .founder{padding:6rem 2rem}
 .founder-inner{max-width:1000px;margin:0 auto}
 .founder-card{background:var(--ink);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 2fr}
@@ -105,7 +111,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.875rem 2rem;display
 .pillar-title{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.3rem}
 .pillar-desc{font-size:12px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.45)}
 
-/* VALUES — horizontal scrolling tags, not cards */
+/* VALUES */
 .values{padding:4rem 2rem;background:var(--paper2);border-top:1px solid var(--border)}
 .values-inner{max-width:1000px;margin:0 auto}
 .values-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1.5rem}
@@ -149,7 +155,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2.5rem}
   .hero-right{display:none}
-  .build-grid{grid-template-columns:1fr}
+  .build-grid-6{grid-template-columns:1fr 1fr}
   .problem-cols{grid-template-columns:1fr}
   .founder-card{grid-template-columns:1fr}
   .founder-left{padding:2rem;flex-direction:row;align-items:center;gap:1rem}
@@ -158,6 +164,9 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
   .cf-grid{grid-template-columns:1fr}
   nav{padding:.75rem 1rem}
   .nav-links{display:none}
+}
+@media(max-width:600px){
+  .build-grid-6{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -172,8 +181,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
     <a href="#contact">Contact</a>
   </div>
   <div style="display:flex;gap:.5rem;align-items:center">
-    <a href="https://receipts.aricciviclabs.org/#transitions" class="nav-cta" style="background:var(--c3)">Transitions →</a>
-    <a href="https://receipts.aricciviclabs.org" class="nav-cta">receipts. →</a>
+    <a href="index.html" class="nav-cta" style="background:var(--c3)">receipts. →</a>
   </div>
 </nav>
 
@@ -190,10 +198,10 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
         Built for the people<br>doing the <em>actual work.</em>
       </h1>
       <p class="hero-sub reveal">
-        AricCivicLabs.Org builds AI-powered tools that help everyday people — employees, founders, nonprofit leaders, and teams — speak up for themselves with data. Our two live product suites are <strong style="color:var(--c3)">receipts.</strong> (ROI proof and value documentation) and <strong style="color:var(--c2)">Transitions</strong> (eight tools for every career moment). No fluff. No gatekeeping. Just tools that work.
+        AricCivicLabs.Org builds AI-powered tools that help everyday people — employees, founders, nonprofit leaders, and teams — prove their value, make better decisions, navigate transitions, and communicate with power. Six connected offerings. Free to use. Private by design. No account required.
       </p>
       <div class="hero-actions reveal">
-        <a href="https://receipts.aricciviclabs.org" class="btn-p">Try receipts. free →</a>
+        <a href="index.html" class="btn-p">Try receipts. free →</a>
         <a href="#what-we-build" class="btn-o">What we build</a>
       </div>
     </div>
@@ -214,44 +222,92 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
   </div>
 </div>
 
-<!-- WHAT WE BUILD -->
+<!-- WHAT WE BUILD — Six offerings -->
 <section class="build-section" id="what-we-build">
   <div class="build-inner">
     <div class="build-label reveal">What we build</div>
-    <h2 class="build-h2 reveal">Tools that turn your work<br>into <em>undeniable evidence.</em></h2>
-    <div class="build-grid reveal">
+    <h2 class="build-h2 reveal">Six ways to make your value<br><em>visible and usable.</em></h2>
+    <div class="build-grid-6 reveal">
 
       <div class="build-item">
         <div class="build-num">01</div>
         <span class="build-icon">🧾</span>
-        <div class="build-title">receipts.<span class="build-badge badge-live" style="font-size:12px;padding:3px 10px;margin-left:.5rem">Live now</span></div>
-        <p class="build-desc">An AI-powered ROI proof engine with four versions — Individual, Small Business, Nonprofit, and Teams. Calculates your real dollar impact, benchmarks your salary, and exports raise letters, grant narratives, and team reports that open doors.</p>
-        <a href="https://receipts.aricciviclabs.org" class="build-link">Open receipts. →</a>
+        <div class="build-title">receipts.<span class="build-tag badge-live">Live</span></div>
+        <p class="build-desc">Prove value in dollars and evidence. Four versions — Individual, Small Business, Nonprofit, Teams. Calculates ROI, benchmarks salaries, and exports raise letters, grant narratives, and leadership-ready reports.</p>
+        <div class="build-links">
+          <a href="roi_v1_individual.html" class="bl bl-teal">Individual</a>
+          <a href="roi_v2_smallbusiness.html" class="bl bl-teal">Small Biz</a>
+          <a href="roi_v3_nonprofit.html" class="bl bl-teal">Nonprofit</a>
+          <a href="roi_v4_teams.html" class="bl bl-teal">Teams</a>
+        </div>
+        <a href="roi_v1_individual.html" class="build-link">Open receipts. →</a>
       </div>
 
       <div class="build-item">
         <div class="build-num">02</div>
         <span class="build-icon">🔄</span>
-        <div class="build-title">Transitions<span class="build-badge badge-live" style="font-size:12px;padding:3px 10px;margin-left:.5rem">Live now</span></div>
-        <p class="build-desc">Eight tools for every career moment: workforce entry, re-entry, exit and retirement planning, equity building, career change, path comparison, and two AI coaches for motivation and speaking. Each tool includes a deep, categorized resource library.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:.375rem;margin:.875rem 0">
-          <a href="https://receipts.aricciviclabs.org/entry_tool.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(42,157,143,.15);color:var(--c3);border:1px solid rgba(42,157,143,.25);text-decoration:none;font-weight:600">Entry</a>
-          <a href="https://receipts.aricciviclabs.org/reentry_tool.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(42,157,143,.15);color:var(--c3);border:1px solid rgba(42,157,143,.25);text-decoration:none;font-weight:600">Re-entry</a>
-          <a href="https://receipts.aricciviclabs.org/exit_tool.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(42,157,143,.15);color:var(--c3);border:1px solid rgba(42,157,143,.25);text-decoration:none;font-weight:600">Exit</a>
-          <a href="https://receipts.aricciviclabs.org/equity_tool.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(42,157,143,.15);color:var(--c3);border:1px solid rgba(42,157,143,.25);text-decoration:none;font-weight:600">Equity</a>
-          <a href="https://receipts.aricciviclabs.org/change_tool.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(42,157,143,.15);color:var(--c3);border:1px solid rgba(42,157,143,.25);text-decoration:none;font-weight:600">Change</a>
-          <a href="https://receipts.aricciviclabs.org/compare_tool.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(42,157,143,.15);color:var(--c3);border:1px solid rgba(42,157,143,.25);text-decoration:none;font-weight:600">Compare</a>
-          <a href="https://receipts.aricciviclabs.org/motivation_coach.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(42,157,143,.15);color:var(--c3);border:1px solid rgba(42,157,143,.25);text-decoration:none;font-weight:600">Motivation</a>
-          <a href="https://receipts.aricciviclabs.org/speaking_coach.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(42,157,143,.15);color:var(--c3);border:1px solid rgba(42,157,143,.25);text-decoration:none;font-weight:600">Speaking</a>
+        <div class="build-title">Transitions<span class="build-tag badge-live">Live</span></div>
+        <p class="build-desc">Navigate career and workforce changes with data, resource libraries, and copyable briefs. Seven tools for every career moment — entry, re-entry, exit, equity, change, compare, and AI motivation coaching.</p>
+        <div class="build-links">
+          <a href="entry_tool.html" class="bl bl-teal">Entry</a>
+          <a href="reentry_tool.html" class="bl bl-teal">Re-entry</a>
+          <a href="exit_tool.html" class="bl bl-teal">Exit</a>
+          <a href="equity_tool.html" class="bl bl-teal">Equity</a>
+          <a href="change_tool.html" class="bl bl-teal">Change</a>
+          <a href="compare_tool.html" class="bl bl-teal">Compare</a>
+          <a href="motivation_coach.html" class="bl bl-teal">Coach</a>
         </div>
-        <a href="https://receipts.aricciviclabs.org/#transitions" class="build-link">Explore Transitions →</a>
+        <a href="index.html#transitions-section" class="build-link">Explore Transitions →</a>
       </div>
 
       <div class="build-item">
         <div class="build-num">03</div>
-        <span class="build-icon">⚡</span>
-        <div class="build-title">Next tool<span class="build-badge badge-soon">In development</span></div>
-        <p class="build-desc">More tools in progress. Every product we build follows the same principles: free access to core features, private by design, AI-powered, and built for the people doing the work.</p>
+        <span class="build-icon">🎤</span>
+        <div class="build-title">Voice<span class="build-tag badge-live">Live</span></div>
+        <p class="build-desc">Say the important thing clearly, credibly, and confidently. Turn evidence into conversations, presentations, scripts, letters, and asks. Speaking coach, negotiation language, grant narratives, leadership briefs.</p>
+        <div class="build-links">
+          <a href="speaking_coach.html" class="bl bl-purple">Speaking Coach</a>
+          <a href="roi_v1_individual.html" class="bl bl-purple">Negotiation exports</a>
+          <a href="roi_v3_nonprofit.html" class="bl bl-purple">Grant narratives</a>
+        </div>
+        <a href="speaking_coach.html" class="build-link">Open speaking coach →</a>
+      </div>
+
+      <div class="build-item">
+        <div class="build-num">04</div>
+        <span class="build-icon">⚖️</span>
+        <div class="build-title">Decisions<span class="build-tag badge-emerging">Emerging</span></div>
+        <p class="build-desc">Compare options before you commit. Model tradeoffs for people, programs, projects, funding, or career paths. AI vs. human crossover, hiring ROI, expansion cases, career comparisons — before the decision is expensive to reverse.</p>
+        <div class="build-links">
+          <a href="roi_v2_smallbusiness.html" class="bl bl-gold">Biz decisions</a>
+          <a href="roi_v3_nonprofit.html" class="bl bl-gold">Nonprofit expansion</a>
+          <a href="compare_tool.html" class="bl bl-gold">Career compare</a>
+        </div>
+        <a href="roi_v2_smallbusiness.html" class="build-link">Open small business tool →</a>
+      </div>
+
+      <div class="build-item">
+        <div class="build-num">05</div>
+        <span class="build-icon">📋</span>
+        <div class="build-title">Proof<span class="build-tag badge-emerging">Emerging</span></div>
+        <p class="build-desc">Capture wins before memory erases them. Achievement ledgers, team contribution logs, nonprofit impact streams — all structured, confidence-weighted, and exportable before review season, grant deadlines, or leadership changes.</p>
+        <div class="build-links">
+          <a href="roi_v1_individual.html" class="bl bl-teal">Achievement ledger</a>
+          <a href="roi_v4_teams.html" class="bl bl-teal">Team ledger</a>
+          <a href="roi_v3_nonprofit.html" class="bl bl-teal">Impact streams</a>
+        </div>
+        <a href="roi_v1_individual.html" class="build-link">Start capturing proof →</a>
+      </div>
+
+      <div class="build-item">
+        <div class="build-num">06</div>
+        <span class="build-icon">🧭</span>
+        <div class="build-title">Pathfinder<span class="build-tag badge-emerging">Emerging</span></div>
+        <p class="build-desc">Find the right tool, resource, or next step. The Pathfinder quiz routes users to the right offering instantly. Resource libraries embedded in every tool — career, money, communication, nonprofit funding, team leadership, and more.</p>
+        <div class="build-links">
+          <a href="index.html#pathfinder" class="bl bl-red">Take the quiz</a>
+        </div>
+        <a href="index.html#pathfinder" class="build-link">Use Pathfinder →</a>
       </div>
 
     </div>
@@ -272,15 +328,15 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
           <div class="cycle-step"><span class="cycle-num">02</span><span class="cycle-text">Nobody notices because you never quantified or communicated it</span></div>
           <div class="cycle-step"><span class="cycle-num">03</span><span class="cycle-text">Raises, promotions, grants, and recognition go to those who can prove their value — not always those who create the most of it</span></div>
           <div class="cycle-step"><span class="cycle-num">04</span><span class="cycle-text">Stagnation sets in. The gap widens. The cycle repeats.</span></div>
-          <div class="cycle-break">AricCivicLabs.Org builds tools to break this cycle — starting with receipts.</div>
+          <div class="cycle-break">AricCivicLabs.Org builds tools to break this cycle — six connected offerings, one mission.</div>
         </div>
       </div>
       <div class="problem-body reveal">
         <p>The gap between <strong>what you actually do</strong> and <strong>what you can prove you do</strong> is one of the most consequential and least-discussed challenges in working life — and it affects almost everyone.</p>
         <p>It affects people across every role and working style. Nonprofit leaders in grant applications. Small business owners making hiring decisions without data. Teams whose collective impact is never surfaced to leadership.</p>
         <p>The tools to close this gap have historically required expensive consultants, proprietary software, or specialized expertise. <strong>We're changing that.</strong></p>
-        <p>Our tools use AI to help you translate your work into honest, defensible numbers — and then into the documents, conversations, and cases that move people and organizations forward.</p>
-        <p style="font-size:13px;color:var(--text3)">We are a AricCivicLabs.Org. That means we measure our success by the impact we enable in the lives of real people — not just revenue metrics.</p>
+        <p>Our six offerings use AI to help you translate your work into honest, defensible numbers — and then into the documents, conversations, and cases that move people and organizations forward.</p>
+        <p style="font-size:13px;color:var(--text3)">We measure our success by the impact we enable in real lives — not just revenue metrics.</p>
       </div>
     </div>
   </div>
@@ -338,7 +394,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
       <div class="value-pill"><span>⚡</span> AI-powered</div>
       <div class="value-pill"><span>🚫</span> No tracking. No ads.</div>
     </div>
-    <p class="value-note">Core tools are free and will remain accessible. Premium features — multi-year tracking, team collaboration, community benchmarks, and enhanced exports — will be available in paid tiers as the platform grows. We will always be clear about what is free and what is not.</p>
+    <p class="value-note">Core tools are free and will remain accessible. Premium features — multi-year tracking, team collaboration, polished PDF exports, and enhanced coaching outputs — will be available in paid tiers as the platform grows. We will always be clear about what is free and what is not.</p>
   </div>
 </section>
 
@@ -374,24 +430,27 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
   <div class="footer-logo">AricCivicLabs.Org</div>
   <div class="footer-links" style="flex-direction:column;gap:.5rem">
     <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
-      <a href="https://receipts.aricciviclabs.org">receipts. v1–v4</a>
-      <a href="https://receipts.aricciviclabs.org/#transitions">Transitions</a>
+      <a href="index.html">receipts. home</a>
+      <a href="roi_v1_individual.html">Individual</a>
+      <a href="roi_v2_smallbusiness.html">Small Business</a>
+      <a href="roi_v3_nonprofit.html">Nonprofit</a>
+      <a href="roi_v4_teams.html">Teams</a>
+    </div>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
+      <a href="entry_tool.html">Entry</a>
+      <a href="reentry_tool.html">Re-entry</a>
+      <a href="exit_tool.html">Exit</a>
+      <a href="equity_tool.html">Equity</a>
+      <a href="change_tool.html">Change</a>
+      <a href="compare_tool.html">Compare</a>
+      <a href="motivation_coach.html">Motivation</a>
+      <a href="speaking_coach.html">Speaking</a>
+    </div>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
       <a href="#what-we-build">Products</a>
       <a href="#the-problem">The problem</a>
       <a href="#founder">Founder</a>
       <a href="#contact">Contact</a>
-    </div>
-    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
-      <a href="https://receipts.aricciviclabs.org/entry_tool.html">Entry</a>
-      <a href="https://receipts.aricciviclabs.org/reentry_tool.html">Re-entry</a>
-      <a href="https://receipts.aricciviclabs.org/exit_tool.html">Exit</a>
-      <a href="https://receipts.aricciviclabs.org/equity_tool.html">Equity</a>
-      <a href="https://receipts.aricciviclabs.org/change_tool.html">Change</a>
-      <a href="https://receipts.aricciviclabs.org/compare_tool.html">Compare</a>
-      <a href="https://receipts.aricciviclabs.org/motivation_coach.html">Motivation</a>
-      <a href="https://receipts.aricciviclabs.org/speaking_coach.html">Speaking</a>
-    </div>
-    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
       <a href="mailto:aricroberts@gmail.com">aricroberts@gmail.com</a>
     </div>
   </div>
