@@ -60,7 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.5rem 2rem;display:f
 .build-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
 .build-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:3rem;text-shadow:0 2px 20px rgba(0,0,0,.3)}
 .build-h2 em{font-style:italic;color:var(--c3)}
-.build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-radius:16px;overflow:visible}
+.build-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;border-radius:16px;overflow:visible}
 .build-item{background:#112233;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:2.5rem;position:relative}
 .build-item:hover{background:#1a3045;border-color:rgba(42,157,143,.4)}
 .build-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.2);margin-bottom:1rem}
@@ -146,6 +146,9 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
 .reveal.visible{opacity:1;transform:none}
 
 /* RESPONSIVE */
+@media(max-width:1200px){
+  .build-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2.5rem}
   .hero-right{display:none}
@@ -190,8 +193,9 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
     <a href="#contact">Contact</a>
   </div>
   <div style="display:flex;gap:.5rem;align-items:center">
-    <a href="https://transitions.aricciviclabs.org" class="nav-cta" style="background:var(--c3);padding:8px 18px;font-size:15px">Transitions →</a>
-    <a href="https://receipts.aricciviclabs.org" class="nav-cta" style="padding:8px 18px;font-size:15px">receipts. →</a>
+    <a href="https://receipts.aricciviclabs.org" class="nav-cta" title="Proving ROI" style="padding:8px 18px;font-size:15px">receipts. →</a>
+    <a href="https://transitions.aricciviclabs.org" class="nav-cta" title="Career Changes" style="background:var(--c3);padding:8px 18px;font-size:15px">Transitions →</a>
+    <a href="https://meshforce.aricciviclabs.org" class="nav-cta" title="WFM/ECP Directory" style="background:#f4a500;color:#0a1628;padding:8px 18px;font-size:15px">MeshForce →</a>
   </div>
 </nav>
 
@@ -208,7 +212,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
         Built for the people<br>doing the <em>actual work.</em>
       </h1>
       <p class="hero-sub reveal">
-        AricCivicLabs.Org builds AI-powered tools that help everyday people — employees, founders, nonprofit leaders, and teams — speak up for themselves with data. Our two live product suites are <strong style="color:var(--c3)">receipts.</strong> (ROI proof and value documentation) and <strong style="color:var(--c2)">Transitions</strong> (eight tools for every career moment). No fluff. No gatekeeping. Just tools that work.
+        AricCivicLabs.Org builds AI-powered tools that help everyday people — employees, founders, nonprofit leaders, and teams — speak up for themselves with data. Our live product suites are <strong style="color:var(--c5)">receipts.</strong> (ROI proof and value documentation), <strong style="color:var(--c3)">Transitions</strong> (eight tools for every career moment), <strong style="color:#f4a500">MeshForce</strong> (WFM &amp; AI workforce registry), and <strong style="color:#9B8BF8">receipts. for Orgs</strong> (nonprofit and team impact reporting). No fluff. No gatekeeping. Just tools that work.
       </p>
       <div class="hero-actions reveal">
         <a href="https://receipts.aricciviclabs.org" class="btn-p">Try receipts. free →</a>
@@ -267,9 +271,27 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
 
       <div class="build-item">
         <div class="build-num">03</div>
-        <span class="build-icon">⚡</span>
-        <div class="build-title">Next tool<span class="build-badge badge-soon">In development</span></div>
-        <p class="build-desc">More tools in progress. Every product we build follows the same principles: free access to core features, private by design, AI-powered, and built for the people doing the work.</p>
+        <span class="build-icon"><img src="transitionsicon.png" alt="MeshForce" style="height:44px;width:44px;border-radius:10px;display:block;filter:hue-rotate(30deg) saturate(1.5)"></span>
+        <div class="build-title">MeshForce<span class="build-badge badge-live" style="font-size:12px;padding:3px 10px;margin-left:.5rem">Live now</span></div>
+        <p class="build-desc">The definitive resource registry for workforce management and enterprise capacity planning professionals navigating AI integration. 55+ tools and calculators, 120+ curated platform listings, and The Seam — a live AI-powered intelligence engine for WFM practitioners.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.375rem;margin:.875rem 0">
+          <a href="https://meshforce.aricciviclabs.org/tools.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(244,165,0,.12);color:#f4a500;border:1px solid rgba(244,165,0,.25);text-decoration:none;font-weight:600">55+ Tools</a>
+          <a href="https://meshforce.aricciviclabs.org/seam.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(244,165,0,.12);color:#f4a500;border:1px solid rgba(244,165,0,.25);text-decoration:none;font-weight:600">Directory</a>
+          <a href="https://meshforce.aricciviclabs.org/seam.html#intelligence" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(244,165,0,.12);color:#f4a500;border:1px solid rgba(244,165,0,.25);text-decoration:none;font-weight:600">The Seam ↗</a>
+        </div>
+        <a href="https://meshforce.aricciviclabs.org" class="build-link" style="color:#f4a500">Explore MeshForce →</a>
+      </div>
+
+      <div class="build-item" style="border-color:rgba(155,139,248,.2)">
+        <div class="build-num">04</div>
+        <span class="build-icon" style="font-size:2.75rem;margin-bottom:1rem;display:block">🏛️</span>
+        <div class="build-title">receipts. for Orgs<span class="build-badge badge-live" style="font-size:12px;padding:3px 10px;margin-left:.5rem">Live now</span></div>
+        <p class="build-desc">Two specialized versions of the receipts. proof engine built for nonprofits and teams. Nonprofits reframe ROI around mission impact, grant justification, and donor value. Teams quantify department-level contributions, manager ROI, and collective impact in board-ready reports.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.375rem;margin:.875rem 0">
+          <a href="https://receipts.aricciviclabs.org/roi_v3_nonprofit.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(155,139,248,.12);color:#9B8BF8;border:1px solid rgba(155,139,248,.25);text-decoration:none;font-weight:600">v3 Nonprofit</a>
+          <a href="https://receipts.aricciviclabs.org/roi_v4_teams.html" style="font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(155,139,248,.12);color:#9B8BF8;border:1px solid rgba(155,139,248,.25);text-decoration:none;font-weight:600">v4 Teams</a>
+        </div>
+        <a href="https://receipts.aricciviclabs.org" class="build-link" style="color:#9B8BF8">Open receipts. for Orgs →</a>
       </div>
 
     </div>
@@ -290,7 +312,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
           <div class="cycle-step"><span class="cycle-num">02</span><span class="cycle-text">Nobody notices because you never quantified or communicated it</span></div>
           <div class="cycle-step"><span class="cycle-num">03</span><span class="cycle-text">Raises, promotions, grants, and recognition go to those who can prove their value — not always those who create the most of it</span></div>
           <div class="cycle-step"><span class="cycle-num">04</span><span class="cycle-text">Stagnation sets in. The gap widens. The cycle repeats.</span></div>
-          <div class="cycle-break">AricCivicLabs.Org builds tools to break this cycle — starting with receipts.</div>
+          <div class="cycle-break">AricCivicLabs.Org builds tools to break this cycle — starting with receipts., Transitions, and MeshForce.</div>
         </div>
       </div>
       <div class="problem-body reveal">
@@ -394,6 +416,9 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
     <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
       <a href="https://receipts.aricciviclabs.org">receipts. v1–v4</a>
       <a href="https://transitions.aricciviclabs.org">Transitions</a>
+      <a href="https://meshforce.aricciviclabs.org">MeshForce</a>
+      <a href="https://receipts.aricciviclabs.org/roi_v3_nonprofit.html">receipts. Nonprofit</a>
+      <a href="https://receipts.aricciviclabs.org/roi_v4_teams.html">receipts. Teams</a>
       <a href="#what-we-build">Products</a>
       <a href="#the-problem">The problem</a>
       <a href="#founder">Founder</a>
