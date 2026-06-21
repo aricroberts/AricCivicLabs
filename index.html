@@ -23,6 +23,9 @@
   --p3-color:#F4A500;       /* WFM — MeshForce amber */
   --p3-bg:rgba(244,165,0,.10);
   --p3-border:rgba(244,165,0,.25);
+  --p4-color:#2A9D8F;       /* Civic & Rights — teal green, always-free */
+  --p4-bg:rgba(42,157,143,.10);
+  --p4-border:rgba(42,157,143,.25);
   --text:#1A1A1A;--text2:#555;--text3:#888;--border:#E0DDD8;
   font-family:'DM Sans',system-ui,sans-serif;
 }
@@ -90,6 +93,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.5rem 2rem;display:f
 .p1-card:hover{border-color:var(--p1-border)}
 .p2-card:hover{border-color:var(--p2-border)}
 .p3-card:hover{border-color:var(--p3-border)}
+.p4-card:hover{border-color:var(--p4-border)}
 
 .product-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.875rem;gap:1rem}
 .product-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
@@ -252,7 +256,7 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
         Built for the people<br>doing the <em>actual work.</em>
       </h1>
       <p class="hero-sub reveal">
-        AricCivicLabs.Org builds AI-powered tools that help everyday people — employees, founders, nonprofit leaders, and teams — speak up for themselves with data. Our three product pillars cover <strong style="color:var(--p1-color)">Work-Life Enablement</strong>, <strong style="color:var(--p2-color)">Social &amp; Psychological Enablement</strong>, and <strong style="color:var(--p3-color)">Workforce Management Enablement</strong>. No fluff. No gatekeeping. Just tools that work.
+        AricCivicLabs.Org builds AI-powered tools that help everyday people — employees, founders, nonprofit leaders, and teams — speak up for themselves with data. Our four product pillars cover <strong style="color:var(--p1-color)">Work-Life Enablement</strong>, <strong style="color:var(--p2-color)">Social &amp; Psychological Enablement</strong>, <strong style="color:var(--p3-color)">Workforce Management Enablement</strong>, and <strong style="color:var(--p4-color)">Civic Participation &amp; Rights Access</strong>. No fluff. No gatekeeping. Just tools that work.
       </p>
       <div class="hero-actions reveal">
         <a href="https://receipts.aricciviclabs.org" class="btn-p">Try receipts. free →</a>
@@ -282,8 +286,8 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
 <section class="pillars-section" id="what-we-build">
   <div class="pillars-inner">
     <div class="pillars-label reveal">What we build</div>
-    <h2 class="pillars-h2 reveal">Three pillars.<br><em>One mission.</em></h2>
-    <p class="pillars-intro reveal">Every tool we build serves a person navigating a system that wasn't designed with them in mind. We organize our work into three interconnected pillars — each one a different kind of enablement.</p>
+    <h2 class="pillars-h2 reveal">Four pillars.<br><em>One mission.</em></h2>
+    <p class="pillars-intro reveal">Every tool we build serves a person navigating a system that wasn't designed with them in mind. We organize our work into four interconnected pillars — each one a different kind of enablement.</p>
 
     <!-- ─────────────────────────────────────────
          PILLAR 1 — Work-Life Enablement
@@ -486,6 +490,79 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
       </div>
     </div><!-- /pillar 3 -->
 
+    <!-- ─────────────────────────────────────────
+         PILLAR 4 — Civic Participation & Rights Access
+         ───────────────────────────────────────── -->
+    <div class="pillar-block reveal">
+      <div class="pillar-header">
+        <span class="pillar-number">04</span>
+        <span class="pillar-badge" style="background:var(--p4-bg);color:var(--p4-color);border-color:var(--p4-border)">
+          🗽 Civic Participation &amp; Rights Access
+        </span>
+        <span class="pillar-tagline">Always free — find the people fighting for you.</span>
+      </div>
+
+      <div class="product-grid cols-3">
+
+        <!-- Civic Rights Connector -->
+        <div class="product-card p4-card">
+          <div class="product-card-top">
+            <div>
+              <div class="product-title">
+                Rights Connector
+                <span class="build-badge badge-live">Live now</span>
+              </div>
+            </div>
+            <a href="https://civic.aricciviclabs.org/rights_connector.html">
+              <img src="civil_rights_connector.png" alt="Civic Rights Connector" style="height:48px;width:48px;border-radius:10px;object-fit:contain;flex-shrink:0">
+            </a>
+          </div>
+          <p class="product-desc">Find organizations that can actually help with what you're dealing with — matched by situation, not a wall of logos. Always free, no account needed.</p>
+          <a href="https://civic.aricciviclabs.org/rights_connector.html" class="product-link" style="color:var(--p4-color)">Open Rights Connector →</a>
+        </div>
+
+        <!-- Defending the Constitution -->
+        <div class="product-card p4-card">
+          <div class="product-card-top">
+            <div>
+              <div class="product-title">
+                Defending the Constitution
+                <span class="build-badge badge-live">Live now</span>
+              </div>
+            </div>
+            <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html">
+              <img src="defend_the_constitution.png" alt="Defending the Constitution" style="height:48px;width:48px;border-radius:10px;object-fit:contain;flex-shrink:0">
+            </a>
+          </div>
+          <p class="product-desc">Organizations litigating constitutional questions, shown across the political spectrum — left, right, and cross-ideological — so no single group is presented as the only answer.</p>
+          <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html" class="product-link" style="color:var(--p4-color)">Explore the spectrum →</a>
+        </div>
+
+        <!-- Communities Before Shareholders -->
+        <div class="product-card p4-card">
+          <div class="product-card-top">
+            <div>
+              <div class="product-title">
+                Communities Before Shareholders
+                <span class="build-badge badge-live">Live now</span>
+              </div>
+            </div>
+            <a href="https://civic.aricciviclabs.org/rights_connector_communities.html">
+              <img src="communities_before_shareholders.png" alt="Communities Before Shareholders" style="height:48px;width:48px;border-radius:10px;object-fit:contain;flex-shrink:0">
+            </a>
+          </div>
+          <p class="product-desc">Organizations working against corporate consolidation and for local economic power — from antimonopoly researchers to small-business advocates.</p>
+          <a href="https://civic.aricciviclabs.org/rights_connector_communities.html" class="product-link" style="color:var(--p4-color)">See the organizations →</a>
+        </div>
+
+      </div>
+
+      <!-- Pillar 4 connective note -->
+      <div style="margin-top:1rem;padding:.875rem 1.25rem;background:rgba(42,157,143,.06);border:1px solid rgba(42,157,143,.15);border-radius:10px;font-size:13px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65">
+        Unlike the rest of the suite, this pillar is the mission, not the monetization — <strong style="color:rgba(255,255,255,.75);font-weight:500">always free, no account, no paywall</strong>. Revenue from the other three pillars is what keeps this one free.
+      </div>
+    </div><!-- /pillar 4 -->
+
   </div>
 </section>
 
@@ -641,6 +718,15 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
         <a href="https://meshforce.aricciviclabs.org/tools.html">55+ Tools</a>
         <a href="https://theseam.aricciviclabs.org/seam.html">The Seam</a>
         <a href="https://theseam.aricciviclabs.org/seam-directory.html">Directory</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-section-label">🗽 Civic Participation &amp; Rights Access</div>
+      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center">
+        <a href="https://civic.aricciviclabs.org/rights_connector.html">Rights Connector</a>
+        <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html">Defending the Constitution</a>
+        <a href="https://civic.aricciviclabs.org/rights_connector_communities.html">Communities Before Shareholders</a>
       </div>
     </div>
 
