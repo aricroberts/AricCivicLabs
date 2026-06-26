@@ -4,624 +4,943 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="grammarly-disable-extension" content="true"/>
-<title>AricCivicLabs.Org — Civic Technology for Everyday People</title>
+<title>AricCivicLabs.Org — Helping Americans Be More American</title>
+<meta name="description" content="AI-powered civic and workforce tools for everyday Americans — from your first paycheck to retirement, from your rights to your representatives. Private by design. Free where it matters most."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+/* ─── TOKENS ─── */
 :root{
-  --ink:#0D0D0D;--paper:#FAFAF7;--paper2:#F2EDE4;
-  --c1:#E63946;--c2:#F4A261;--c3:#2A9D8F;--c4:#457B9D;--c5:#6B4EFF;--c6:#E9C46A;
-  /* Pillar accent colors */
-  --p1-color:#5C9EE8;       /* Work-Life — calm blue */
-  --p1-bg:rgba(92,158,232,.10);
-  --p1-border:rgba(92,158,232,.25);
-  --p2-color:#7F77DD;       /* Social & Psych — InAble purple */
-  --p2-bg:rgba(127,119,221,.10);
-  --p2-border:rgba(127,119,221,.25);
-  --p3-color:#F4A500;       /* WFM — MeshForce amber */
-  --p3-bg:rgba(244,165,0,.10);
-  --p3-border:rgba(244,165,0,.25);
-  --p4-color:#2A9D8F;       /* Civic & Rights — teal green, always-free */
-  --p4-bg:rgba(42,157,143,.10);
-  --p4-border:rgba(42,157,143,.25);
-  --text:#1A1A1A;--text2:#555;--text3:#888;--border:#E0DDD8;
+  /* Civic identity */
+  --parchment:#F6EFDC;
+  --navy:#1F3A5C;
+  --brick:#A8412F;
+  --gold:#8F6418;
+  --civic-green:#3D7A57;
+
+  /* App structure */
+  --ink:#0A0E1C;
+  --surface:#0F1828;
+  --surface2:#162035;
+  --cream:#FAFAF7;
+  --cream2:#F2EDE4;
+  --border:#E0DDD8;
+  --text:#1A1A1A;
+  --text2:#555;
+  --text3:#888;
+
+  /* Pillar accents */
+  --p1:#5C9EE8;
+  --p1-bg:rgba(92,158,232,.1);
+  --p1-bd:rgba(92,158,232,.28);
+  --p2:#8B7FE8;
+  --p2-bg:rgba(139,127,232,.1);
+  --p2-bd:rgba(139,127,232,.28);
+  --p3:#F4A500;
+  --p3-bg:rgba(244,165,0,.1);
+  --p3-bd:rgba(244,165,0,.28);
+  --p4:#3D7A57;
+  --p4-bg:rgba(61,122,87,.1);
+  --p4-bd:rgba(61,122,87,.3);
+
   font-family:'DM Sans',system-ui,sans-serif;
+  color-scheme:light only;
 }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--text);overflow-x:hidden}
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.7}
+body{background:var(--cream);color:var(--text);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(250,250,247,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.nav-logo{display:flex;align-items:center;gap:8px}
-.nav-links{display:flex;align-items:center;gap:2.75rem}
-.nav-links a{font-size:16px;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{font-size:13px;font-weight:600;color:#fff;background:var(--c5);padding:8px 20px;border-radius:99px;text-decoration:none;transition:all .2s}
-.nav-cta:hover{background:var(--c4);transform:translateY(-1px)}
+/* ─── LEGAL NOTICE ─── */
+#rcp-notice{
+  position:sticky;top:0;z-index:9999;
+  background:#1A1F2E;border-bottom:1px solid #2A3050;
+  padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  font-size:12px;color:#8A90A8;line-height:1.4;
+}
+#rcp-notice a{color:#4A9EFF;}
+#rcp-notice a:hover{text-decoration:underline}
+#rcp-notice-close{background:none;border:none;color:#4A5070;cursor:pointer;font-size:16px;padding:0 0 0 .5rem;flex-shrink:0}
+#rcp-notice-close:hover{color:#8A90A8}
 
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 4rem 4rem;gap:4rem;position:relative;overflow:hidden;max-width:1200px;margin:0 auto}
-.hero-left{}
-.hero-right{position:relative}
-.hero-eyebrow{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c5);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
-.hero-eyebrow::after{content:'';flex:1;height:1px;background:var(--c5);opacity:.3}
-.hero-h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem}
-.hero-h1 em{font-style:italic;color:var(--c1)}
-.hero-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--text2);margin-bottom:2rem;max-width:480px}
-.hero-actions{display:flex;gap:.875rem;flex-wrap:wrap}
-.btn-p{display:inline-flex;align-items:center;gap:.5rem;padding:12px 26px;background:var(--ink);color:#fff;font-size:14px;font-weight:600;border-radius:99px;text-decoration:none;transition:all .25s}
-.btn-p:hover{background:var(--c5);transform:translateY(-2px)}
-.btn-o{display:inline-flex;align-items:center;gap:.5rem;padding:12px 26px;border:2px solid var(--border);color:var(--text2);font-size:14px;font-weight:600;border-radius:99px;text-decoration:none;transition:all .25s}
-.btn-o:hover{border-color:var(--ink);color:var(--ink)}
-.hero-manifesto{background:var(--ink);color:#fff;border-radius:20px;padding:2.5rem;position:relative;overflow:hidden}
-.hero-manifesto::before{content:'"';font-family:'Playfair Display',serif;font-size:16rem;font-weight:900;color:rgba(255,255,255,.04);position:absolute;top:-4rem;left:-1rem;line-height:1;pointer-events:none}
-.manifesto-text{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:400;font-style:italic;line-height:1.65;color:rgba(255,255,255,.9);margin-bottom:1.5rem;position:relative;z-index:1}
-.manifesto-text strong{font-style:normal;font-weight:700;color:var(--c2)}
-.manifesto-attr{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
-.manifesto-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.25rem}
-.mtag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;border:1px solid}
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.75rem 2rem;
+  background:rgba(246,239,220,.95);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(31,58,92,.12);
+}
+.nav-logo img{height:36px;width:auto}
+.nav-mid{display:flex;align-items:center;gap:2rem}
+.nav-mid a{font-size:14px;font-weight:500;color:var(--navy);opacity:.65;transition:opacity .2s}
+.nav-mid a:hover{opacity:1}
+.nav-actions{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.nav-pill{
+  font-size:12px;font-weight:600;padding:7px 16px;border-radius:99px;
+  display:inline-flex;align-items:center;gap:.375rem;transition:all .2s;
+}
+.nav-pill-civic{background:var(--navy);color:var(--parchment)}
+.nav-pill-civic:hover{background:var(--brick);color:#fff}
+.nav-pill-outline{border:1.5px solid var(--navy);color:var(--navy)}
+.nav-pill-outline:hover{background:var(--navy);color:var(--parchment)}
 
-/* ── PILLAR SECTIONS ── */
-.pillars-section{background:#0D1F2D;color:#fff;padding:6rem 2rem;position:relative;overflow:hidden}
-.pillars-inner{max-width:1140px;margin:0 auto}
-.pillars-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
-.pillars-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:.75rem;text-shadow:0 2px 20px rgba(0,0,0,.3)}
-.pillars-h2 em{font-style:italic;color:var(--c3)}
-.pillars-intro{font-size:15px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;max-width:640px;margin-bottom:4rem}
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  background:var(--parchment);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  padding:7rem 4rem 5rem;
+  margin-top:0;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(31,58,92,.065) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+.hero::after{
+  content:'';position:absolute;right:-10%;top:-20%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(31,58,92,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--civic-green);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.hero-eyebrow::after{content:'';flex:1;height:1px;background:var(--civic-green);opacity:.3}
+.hero-h1{
+  font-family:'Libre Caslon Display',Georgia,serif;
+  font-size:clamp(2.8rem,4.5vw,5rem);
+  line-height:1.06;letter-spacing:-.03em;
+  color:var(--navy);margin-bottom:1.5rem;
+}
+.hero-h1 em{font-style:italic;color:var(--brick)}
+.hero-sub{
+  font-size:1.05rem;font-weight:300;line-height:1.85;
+  color:var(--text2);margin-bottom:2rem;max-width:500px;
+}
+.hero-sub strong{font-weight:600;color:var(--text)}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-civic{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:13px 28px;background:var(--navy);color:var(--parchment);
+  font-size:14px;font-weight:600;border-radius:99px;
+  transition:all .25s;
+}
+.btn-civic:hover{background:var(--brick);transform:translateY(-2px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:13px 28px;border:2px solid var(--navy);color:var(--navy);
+  font-size:14px;font-weight:600;border-radius:99px;
+  transition:all .25s;
+}
+.btn-ghost:hover{background:var(--navy);color:var(--parchment)}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.hero-stat-val{font-family:'Libre Caslon Display',serif;font-size:2rem;color:var(--navy);line-height:1}
+.hero-stat-label{font-size:11px;font-weight:500;color:var(--text3);margin-top:.25rem;letter-spacing:.03em}
+
+/* Right panel — founder quote */
+.hero-panel{
+  background:var(--navy);border-radius:20px;padding:2.5rem;
+  position:relative;overflow:hidden;
+}
+.hero-panel::before{
+  content:'"';
+  font-family:'Libre Caslon Display',serif;
+  font-size:18rem;line-height:1;font-style:italic;
+  color:rgba(246,239,220,.04);
+  position:absolute;top:-5rem;left:-1rem;pointer-events:none;
+}
+.panel-label{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(246,239,220,.3);margin-bottom:1.5rem;position:relative;z-index:1;
+}
+.panel-quote{
+  font-family:'Libre Caslon Display',serif;font-size:1.2rem;font-style:italic;
+  line-height:1.75;color:var(--parchment);
+  margin-bottom:1.5rem;position:relative;z-index:1;
+}
+.panel-quote strong{font-style:normal;color:rgba(198,160,80,1)}
+.panel-attr{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(246,239,220,.35);
+}
+.panel-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.5rem}
+.ptag{
+  font-size:11px;font-weight:600;padding:4px 10px;
+  border-radius:99px;border:1px solid;
+}
+
+/* ─── CIVIC FEATURE (Main Focus) ─── */
+.civic{
+  background:var(--navy);
+  padding:6rem 4rem;
+  position:relative;overflow:hidden;
+}
+.civic::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(246,239,220,.04) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;
+}
+.civic-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.civic-eyebrow{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(198,160,80,.8);margin-bottom:1rem;
+}
+.civic-h2{
+  font-family:'Libre Caslon Display',serif;
+  font-size:clamp(2.2rem,4vw,4rem);
+  line-height:1.1;letter-spacing:-.02em;
+  color:var(--parchment);margin-bottom:.875rem;
+}
+.civic-h2 em{font-style:italic;color:rgba(198,160,80,1)}
+.civic-sub{
+  font-size:15px;font-weight:300;line-height:1.8;
+  color:rgba(246,239,220,.55);max-width:640px;margin-bottom:.875rem;
+}
+.civic-free-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(168,65,47,.25);border:1.5px solid rgba(168,65,47,.5);
+  color:#E8887A;border-radius:99px;
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 14px;margin-bottom:3rem;
+}
+.civic-articles{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;
+}
+.civic-article{
+  background:rgba(246,239,220,.05);
+  border:1px solid rgba(246,239,220,.12);
+  border-radius:18px;padding:2rem;
+  display:flex;flex-direction:column;align-items:flex-start;
+  transition:background .25s,border-color .25s;
+}
+.civic-article:hover{background:rgba(246,239,220,.09);border-color:rgba(246,239,220,.22)}
+.article-roman{
+  font-family:'Libre Caslon Display',serif;font-style:italic;
+  font-size:.95rem;color:rgba(246,239,220,.22);
+  letter-spacing:.04em;margin-bottom:1.25rem;
+  border-bottom:1px solid rgba(246,239,220,.08);
+  padding-bottom:.75rem;width:100%;
+}
+.article-seal{
+  width:72px;height:72px;object-fit:contain;border-radius:12px;
+  margin-bottom:1.25rem;
+}
+.article-title{
+  font-family:'Libre Caslon Display',serif;
+  font-size:1.3rem;color:var(--parchment);
+  margin-bottom:.625rem;line-height:1.2;
+}
+.article-desc{
+  font-size:13px;font-weight:300;line-height:1.75;
+  color:rgba(246,239,220,.5);margin-bottom:1.25rem;flex:1;
+}
+.article-link{
+  font-size:13px;font-weight:600;color:rgba(198,160,80,.9);
+  display:inline-flex;align-items:center;gap:.375rem;
+  transition:gap .2s,color .2s;
+}
+.civic-article:hover .article-link{gap:.6rem;color:rgba(198,160,80,1)}
+
+/* Civic funding note */
+.civic-note{
+  margin-top:2rem;padding:1.25rem 1.75rem;
+  background:rgba(61,122,87,.12);border:1px solid rgba(61,122,87,.25);
+  border-radius:12px;font-size:14px;font-weight:300;line-height:1.75;
+  color:rgba(246,239,220,.6);
+}
+.civic-note strong{font-weight:600;color:rgba(246,239,220,.85)}
+
+/* ─── TOOLS (Pillars 1–3) ─── */
+.tools{background:var(--ink);padding:6rem 4rem}
+.tools-inner{max-width:1100px;margin:0 auto}
+.tools-eyebrow{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);
+  margin-bottom:1rem;
+}
+.tools-h2{
+  font-family:'Libre Caslon Display',serif;
+  font-size:clamp(2rem,3.5vw,3.5rem);line-height:1.1;letter-spacing:-.02em;
+  color:#fff;margin-bottom:.75rem;
+}
+.tools-h2 em{font-style:italic;color:var(--p1)}
+.tools-sub{
+  font-size:15px;font-weight:300;line-height:1.8;
+  color:rgba(255,255,255,.4);max-width:640px;margin-bottom:4rem;
+}
 
 /* Pillar block */
-.pillar-block{margin-bottom:4rem}
-.pillar-block:last-child{margin-bottom:0}
-.pillar-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.pillar-number{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.2)}
-.pillar-badge{display:inline-flex;align-items:center;gap:.5rem;padding:10px 28px;border-radius:99px;font-size:22px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid}
-.pillar-tagline{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);margin-left:auto;font-style:italic}
+.pillar{margin-bottom:4rem}
+.pillar:last-child{margin-bottom:0}
+.pillar-header{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.5rem;padding-bottom:1rem;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.pillar-num{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.1em;color:rgba(255,255,255,.15);
+}
+.pillar-label{
+  font-size:12px;font-weight:600;padding:6px 16px;border-radius:99px;
+  letter-spacing:.04em;text-transform:uppercase;border:1px solid;
+}
+.pillar-tagline{
+  font-size:13px;font-weight:300;color:rgba(255,255,255,.3);
+  font-style:italic;margin-left:auto;
+}
 
-/* Product card grid inside pillar */
-.product-grid{display:grid;gap:1rem}
-.product-grid.cols-3{grid-template-columns:repeat(3,1fr)}
-.product-grid.cols-2{grid-template-columns:repeat(2,1fr)}
-.product-grid.cols-1{grid-template-columns:1fr}
+/* Product grid + card */
+.p-grid{display:grid;gap:1rem}
+.p-grid-2{grid-template-columns:repeat(2,1fr)}
+.p-grid-3{grid-template-columns:repeat(3,1fr)}
+.p-card{
+  background:var(--surface);border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:1.75rem;
+  transition:background .25s,border-color .25s;
+  display:flex;flex-direction:column;
+}
+.p-card:hover{background:var(--surface2)}
+.p-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.875rem}
+.p-card-title{
+  font-family:'Libre Caslon Display',serif;
+  font-size:1.3rem;color:#fff;line-height:1.2;margin-bottom:.25rem;
+}
+.p-card-desc{
+  font-size:13px;font-weight:300;line-height:1.75;
+  color:rgba(255,255,255,.5);margin-bottom:1rem;flex:1;
+}
+.p-icon{width:44px;height:44px;border-radius:10px;flex-shrink:0;object-fit:contain}
+.p-icon-emoji{
+  width:44px;height:44px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+}
+.p-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.875rem}
+.p-tag{
+  font-size:10px;font-weight:700;padding:3px 9px;border-radius:99px;border:1px solid;
+}
+.p-link{
+  font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:.375rem;
+  margin-top:auto;transition:gap .2s;
+}
+.p-link:hover{gap:.6rem}
+.badge-live{
+  font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;
+  background:rgba(61,122,87,.2);color:#5CB88A;border:1px solid rgba(61,122,87,.3);
+  vertical-align:middle;margin-left:.375rem;letter-spacing:.04em;text-transform:uppercase;
+}
 
-.product-card{background:#112233;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.75rem 2rem;position:relative;transition:border-color .25s,background .25s}
-.product-card:hover{background:#1a3045}
+/* Pillar connective note */
+.p-note{
+  margin-top:1rem;padding:.875rem 1.25rem;border-radius:10px;
+  font-size:13px;font-weight:300;line-height:1.65;color:rgba(255,255,255,.45);
+}
 
-/* Pillar-tinted hover borders */
-.p1-card:hover{border-color:var(--p1-border)}
-.p2-card:hover{border-color:var(--p2-border)}
-.p3-card:hover{border-color:var(--p3-border)}
-.p4-card:hover{border-color:var(--p4-border)}
-
-.product-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.875rem;gap:1rem}
-.product-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
-.product-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;font-style:italic;color:#fff;line-height:1.2;margin-bottom:.3rem}
-.product-desc{font-size:13px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:1rem}
-.product-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.875rem}
-.product-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;text-decoration:none;transition:opacity .2s}
-.product-tag:hover{opacity:.75}
-.product-link{font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.375rem;transition:gap .2s}
-.product-link:hover{gap:.6rem}
-.build-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;vertical-align:middle}
-.badge-live{background:rgba(42,157,143,.2);color:#2A9D8F;border:1px solid rgba(42,157,143,.3)}
-.badge-coming{background:rgba(255,255,255,.05);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1)}
-
-/* Sub-products (inline, smaller) inside a card */
-.subproducts{display:flex;flex-wrap:wrap;gap:.3rem;margin:.625rem 0 .875rem}
-
-/* THE PROBLEM */
-.problem{padding:6rem 2rem;background:var(--paper2)}
+/* ─── PROBLEM ─── */
+.problem{
+  padding:6rem 4rem;background:var(--cream2);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
 .problem-inner{max-width:1000px;margin:0 auto}
-.problem-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:1rem}
-.problem-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:2.5rem}
+.problem-eyebrow{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--brick);margin-bottom:.875rem;
+}
+.problem-h2{
+  font-family:'Libre Caslon Display',serif;
+  font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;
+  color:var(--text);margin-bottom:2.5rem;
+}
 .problem-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.problem-pull{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;font-style:italic;line-height:1.4;color:var(--c1);padding-left:1.5rem;border-left:4px solid var(--c1);margin-bottom:2rem}
-.problem-body p{font-size:15px;font-weight:300;line-height:1.85;color:var(--text2);margin-bottom:1.25rem}
-.problem-body p strong{font-weight:600;color:var(--ink)}
-.cycle-box{background:var(--ink);color:#fff;border-radius:16px;padding:2rem;margin-top:1rem}
-.cycle-step{display:flex;align-items:flex-start;gap:.875rem;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.problem-pull{
+  font-family:'Libre Caslon Display',serif;font-style:italic;
+  font-size:1.45rem;line-height:1.55;color:var(--brick);
+  padding-left:1.25rem;border-left:3px solid var(--brick);margin-bottom:2rem;
+}
+.problem-body p{
+  font-size:15px;font-weight:300;line-height:1.85;color:var(--text2);margin-bottom:1.25rem;
+}
+.problem-body p strong{font-weight:600;color:var(--text)}
+.cycle-box{
+  background:var(--navy);border-radius:16px;padding:2rem;margin-top:.5rem;
+}
+.cycle-label{
+  font-family:'Space Mono',monospace;font-size:9px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(246,239,220,.25);
+  margin-bottom:.875rem;
+}
+.cycle-step{
+  display:flex;align-items:flex-start;gap:.875rem;
+  padding:.75rem 0;border-bottom:1px solid rgba(246,239,220,.06);
+}
 .cycle-step:last-child{border-bottom:none}
-.cycle-num{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:var(--c1);flex-shrink:0;width:20px;margin-top:2px}
-.cycle-text{font-size:13px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.65)}
-.cycle-break{background:rgba(42,157,143,.15);border:1px solid rgba(42,157,143,.3);border-radius:10px;padding:1rem 1.25rem;margin-top:1.25rem;font-size:13px;font-weight:500;color:var(--c3);line-height:1.6}
+.cycle-n{
+  font-family:'Space Mono',monospace;font-size:9px;font-weight:700;
+  color:var(--brick);flex-shrink:0;width:20px;margin-top:2px;
+}
+.cycle-t{font-size:13px;font-weight:300;line-height:1.65;color:rgba(246,239,220,.6)}
+.cycle-break{
+  background:rgba(61,122,87,.18);border:1px solid rgba(61,122,87,.3);
+  border-radius:10px;padding:1rem 1.25rem;margin-top:1.25rem;
+  font-size:13px;font-weight:500;color:#7EC9A0;line-height:1.65;
+}
 
-/* FOUNDER */
-.founder{padding:6rem 2rem}
+/* ─── FOUNDER ─── */
+.founder{padding:4rem 4rem 5rem}
 .founder-inner{max-width:1000px;margin:0 auto}
-.founder-card{background:var(--ink);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 2fr}
-.founder-left{background:linear-gradient(135deg,#1a1a2e,#0d0d1a);padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.founder-initial{font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;font-style:italic;color:var(--c5);line-height:1;margin-bottom:.5rem;opacity:.8}
-.founder-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase}
-.founder-role{font-size:11px;color:rgba(255,255,255,.3);margin-top:.25rem;letter-spacing:.04em}
+.founder-card{
+  background:var(--navy);border-radius:20px;overflow:hidden;
+  display:grid;grid-template-columns:220px 1fr;
+}
+.founder-left{
+  background:linear-gradient(160deg,#182e48,#0f1e2e);
+  padding:3rem 2rem;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+}
+.founder-A{
+  font-family:'Libre Caslon Display',serif;font-style:italic;
+  font-size:6rem;line-height:1;color:var(--p1);opacity:.8;margin-bottom:.5rem;
+}
+.founder-name{font-size:13px;font-weight:600;color:rgba(246,239,220,.6);letter-spacing:.06em;text-transform:uppercase}
+.founder-role{font-size:11px;color:rgba(246,239,220,.3);margin-top:.25rem}
+.founder-org{
+  font-family:'Space Mono',monospace;font-size:9px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:rgba(246,239,220,.15);
+  margin-top:1.25rem;
+}
 .founder-right{padding:3rem}
-.founder-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.25rem}
-.founder-quote{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:400;font-style:italic;line-height:1.65;color:rgba(255,255,255,.9);margin-bottom:2rem}
-.founder-quote strong{font-style:normal;font-weight:700;color:var(--c2)}
-.founder-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.fp{border-left:2px solid;padding-left:.875rem}
-.fp-title{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.3rem}
-.fp-desc{font-size:12px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.45)}
+.founder-label{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(246,239,220,.3);
+  margin-bottom:1.25rem;
+}
+.founder-quote{
+  font-family:'Libre Caslon Display',serif;font-style:italic;
+  font-size:1.15rem;line-height:1.75;color:var(--parchment);margin-bottom:2rem;
+}
+.founder-quote strong{font-style:normal;font-weight:700;color:rgba(198,160,80,1)}
+.founder-values{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fv{border-left:2px solid;padding-left:.875rem}
+.fv-title{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.3rem}
+.fv-desc{font-size:12px;font-weight:300;line-height:1.65;color:rgba(246,239,220,.4)}
 
-/* VALUES */
-.values{padding:4rem 2rem;background:var(--paper2);border-top:1px solid var(--border)}
+/* ─── VALUES ─── */
+.values{padding:3.5rem 4rem;background:var(--cream2);border-top:1px solid var(--border)}
 .values-inner{max-width:1000px;margin:0 auto}
-.values-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1.5rem}
-.values-row{display:flex;gap:1rem;flex-wrap:wrap}
-.value-pill{display:flex;align-items:center;gap:.625rem;padding:.875rem 1.5rem;border-radius:99px;border:1.5px solid var(--border);background:#fff;font-size:14px;font-weight:500;color:var(--ink)}
-.value-pill span{font-size:1.1rem}
-.value-note{font-size:12px;font-weight:300;color:var(--text3);margin-top:.875rem;line-height:1.7;max-width:600px}
+.values-label{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:1.25rem;
+}
+.values-pills{display:flex;gap:.75rem;flex-wrap:wrap}
+.vpill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.75rem 1.25rem;border-radius:99px;
+  border:1.5px solid var(--border);background:#fff;
+  font-size:13px;font-weight:500;color:var(--text);
+}
+.values-note{
+  font-size:13px;font-weight:300;color:var(--text3);
+  margin-top:1rem;line-height:1.75;max-width:640px;
+}
 
-/* CONTACT */
-.contact{padding:6rem 2rem;background:var(--ink)}
-.contact-inner{max-width:560px;margin:0 auto;text-align:center}
-.contact-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
-.contact-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;font-style:italic;color:#fff;margin-bottom:.875rem}
-.contact-sub{font-size:14px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.45);margin-bottom:2.5rem}
+/* ─── CONTACT ─── */
+.contact{padding:6rem 4rem;background:var(--ink)}
+.contact-inner{max-width:540px;margin:0 auto;text-align:center}
+.contact-eyebrow{
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);
+  margin-bottom:1rem;
+}
+.contact-h2{
+  font-family:'Libre Caslon Display',serif;font-style:italic;
+  font-size:clamp(2rem,3.5vw,2.75rem);color:#fff;margin-bottom:.875rem;
+}
+.contact-sub{
+  font-size:14px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.4);
+  margin-bottom:2.5rem;
+}
 .contact-form{text-align:left}
-.cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:.875rem;margin-bottom:.875rem}
-.cf-label{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:4px}
-.cf-input{width:100%;padding:10px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-family:inherit;font-size:14px;transition:border-color .2s}
-.cf-input:focus{outline:none;border-color:var(--c5)}
-.cf-input::placeholder{color:rgba(255,255,255,.25)}
-.cf-btn{display:inline-flex;align-items:center;gap:.5rem;padding:12px 28px;background:var(--c5);color:#fff;font-size:14px;font-weight:600;border:none;border-radius:99px;cursor:pointer;transition:all .2s;margin-top:1.25rem}
-.cf-btn:hover{background:var(--c4);transform:translateY(-1px)}
-#acl-status{font-size:13px;color:rgba(255,255,255,.45);margin-top:.75rem;display:block}
-.contact-alt{margin-top:2rem;font-size:12px;color:rgba(255,255,255,.25)}
-.contact-alt a{color:rgba(255,255,255,.45);text-decoration:none}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.875rem;margin-bottom:.875rem}
+.cf-label{
+  font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);display:block;margin-bottom:4px;
+}
+.cf-input{
+  width:100%;padding:11px 14px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;color:#fff;font-family:inherit;font-size:14px;
+  transition:border-color .2s;
+}
+.cf-input:focus{outline:none;border-color:var(--p1)}
+.cf-input::placeholder{color:rgba(255,255,255,.2)}
+.cf-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:12px 28px;background:var(--p1);color:#fff;
+  font-size:14px;font-weight:600;border:none;border-radius:99px;
+  cursor:pointer;transition:all .2s;margin-top:1.25rem;
+}
+.cf-btn:hover{background:var(--navy);transform:translateY(-1px)}
+#acl-status{font-size:12px;color:rgba(255,255,255,.4);margin-top:.75rem;display:block}
+.contact-alt{margin-top:2rem;font-size:12px;color:rgba(255,255,255,.2)}
+.contact-alt a{color:rgba(255,255,255,.4)}
 .contact-alt a:hover{color:#fff}
 
-/* FOOTER */
-footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
-.footer-logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-bottom:.5rem}
-.footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin:.875rem 0}
-.footer-links a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+/* ─── FOOTER ─── */
+footer{background:#060810;padding:3rem 2rem;text-align:center}
+.footer-wordmark{margin:0 auto 1.25rem;height:28px;width:auto;opacity:.4}
+.footer-pillar-group{margin:.875rem 0}
+.footer-pillar-label{
+  font-family:'Space Mono',monospace;font-size:9px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.18);
+  margin-bottom:.3rem;
+}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:.875rem 1.5rem;margin:.25rem 0}
+.footer-links a{font-size:12px;color:rgba(255,255,255,.22);transition:color .2s}
 .footer-links a:hover{color:rgba(255,255,255,.6)}
-.footer-copy{font-size:11px;color:rgba(255,255,255,.15)}
-.footer-section-label{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.18);margin:.75rem 0 .25rem}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.12);margin-top:2rem}
+.footer-legal{margin-top:.5rem}
+.footer-legal a{font-size:11px;color:rgba(255,255,255,.18)}
+.footer-legal a:hover{color:rgba(255,255,255,.45)}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
 
-/* RESPONSIVE */
+/* ─── RESPONSIVE ─── */
 @media(max-width:1100px){
-  .product-grid.cols-3{grid-template-columns:repeat(2,1fr)}
+  .p-grid-3{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2.5rem}
-  .hero-right{display:none}
-  .product-grid.cols-3,.product-grid.cols-2{grid-template-columns:1fr}
-  .problem-cols{grid-template-columns:1fr}
-  .founder-card{grid-template-columns:1fr}
-  .founder-left{padding:2rem;flex-direction:row;align-items:center;gap:1rem}
-  .founder-initial{font-size:3.5rem;margin-bottom:0}
-  .founder-pillars{grid-template-columns:1fr}
-  .cf-grid{grid-template-columns:1fr}
+  .hero{padding:6rem 1.5rem 3.5rem}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-h1{font-size:2.75rem}
   nav{padding:.75rem 1rem}
-  .nav-links{display:none}
+  .nav-mid{display:none}
+  .civic{padding:4rem 1.5rem}
+  .civic-articles{grid-template-columns:1fr}
+  .tools{padding:4rem 1.5rem}
+  .p-grid-2,.p-grid-3{grid-template-columns:1fr}
+  .problem{padding:4rem 1.5rem}
+  .problem-cols{grid-template-columns:1fr}
+  .founder{padding:2rem 1.5rem 4rem}
+  .founder-card{grid-template-columns:1fr}
+  .founder-left{padding:2rem;flex-direction:row;gap:1.25rem;text-align:left}
+  .founder-A{font-size:3.5rem;margin-bottom:0}
+  .founder-right{padding:2rem}
+  .founder-values{grid-template-columns:1fr}
+  .values{padding:3rem 1.5rem}
+  .contact{padding:4rem 1.5rem}
+  .cf-row{grid-template-columns:1fr}
   .pillar-tagline{display:none}
+}
+@media(max-width:640px){
+  .civic-articles{grid-template-columns:1fr}
+  .hero-stats{gap:1.25rem}
 }
 </style>
 </head>
 <body>
 
-<!-- Legal notice bar -->
-<style>
-#rcp-notice{position:sticky;top:0;z-index:9999;background:#1A1F2E;border-bottom:1px solid #2A3050;padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-family:'DM Sans',system-ui,sans-serif;font-size:12px;color:#8A90A8;line-height:1.4}
-#rcp-notice a{color:#4A9EFF;text-decoration:none}
-#rcp-notice a:hover{text-decoration:underline}
-#rcp-notice-close{background:none;border:none;color:#4A5070;cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 .5rem;flex-shrink:0}
-#rcp-notice-close:hover{color:#8A90A8}
-</style>
+<!-- LEGAL BAR -->
 <div id="rcp-notice">
-  <span>By using this site you agree to our <a href="https://aricciviclabs.org/legal.html" target="_blank">Privacy &amp; Terms</a>. All outputs are self-reported estimates only — not professional, legal, or financial advice.</span>
-  <button id="rcp-notice-close" aria-label="Dismiss" onclick="this.parentElement.style.display='none';try{sessionStorage.setItem('rcpNotice','1')}catch(e){}">&#x2715;</button>
+  <span>By using this site you agree to our <a href="https://aricciviclabs.org/legal.html" target="_blank">Privacy &amp; Terms</a>. All tool outputs are self-reported estimates only — not professional, legal, or financial advice.</span>
+  <button id="rcp-notice-close" aria-label="Dismiss" onclick="this.parentElement.style.display='none';try{sessionStorage.setItem('rcpN','1')}catch(e){}">&#x2715;</button>
 </div>
-<script>try{if(sessionStorage.getItem('rcpNotice')==='1'){var n=document.getElementById('rcp-notice');if(n)n.style.display='none';}}catch(e){}</script>
+<script>try{if(sessionStorage.getItem('rcpN')==='1'){var _n=document.getElementById('rcp-notice');if(_n)_n.style.display='none';}}catch(e){}</script>
 
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="aric_civic_labs_wordmark.png" alt="AricCivicLabs.org" style="height:156px">
+    <img src="aricciviclabs_org_wordmark.png" alt="AricCivicLabs.Org"/>
   </div>
-  <div class="nav-links">
-    <a href="#what-we-build">Products</a>
-    <span style="color:var(--text3);font-weight:300">—</span>
-    <a href="#the-problem">The problem</a>
-    <span style="color:var(--text3);font-weight:300">—</span>
-    <a href="#founder">Founder</a>
-    <span style="color:var(--text3);font-weight:300">—</span>
+  <div class="nav-mid">
+    <a href="#civic">Civic Tools</a>
+    <a href="#tools">Products</a>
+    <a href="#mission">Mission</a>
     <a href="#contact">Contact</a>
   </div>
-  <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
-    <a href="https://receipts.aricciviclabs.org" class="nav-cta" style="padding:8px 18px;font-size:15px">receipts. →</a>
-    <a href="https://transitions.aricciviclabs.org" class="nav-cta" style="background:var(--c3);padding:8px 18px;font-size:15px">Transitions →</a>
-    <a href="https://meshforce.aricciviclabs.org" class="nav-cta" style="background:#f4a500;color:#0a1628;padding:8px 18px;font-size:15px">MeshForce →</a>
-    <a href="https://inable.aricciviclabs.org" class="nav-cta" style="background:#7F77DD;padding:8px 18px;font-size:15px">InAble →</a>
-    <a href="https://civic.aricciviclabs.org/rights_connector.html" class="nav-cta" style="background:#2A9D8F;padding:8px 18px;font-size:15px">Rights Connector →</a>
+  <div class="nav-actions">
+    <a href="https://civic.aricciviclabs.org/rights_connector.html" class="nav-pill nav-pill-civic">🗽 Know Your Rights</a>
+    <a href="https://receipts.aricciviclabs.org" class="nav-pill nav-pill-outline">receipts. →</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div style="position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
-    <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:var(--c5);filter:blur(120px);opacity:.06;top:-200px;right:-100px"></div>
-    <div style="position:absolute;width:400px;height:400px;border-radius:50%;background:var(--c1);filter:blur(100px);opacity:.06;bottom:-100px;left:-50px"></div>
-  </div>
-  <div class="hero">
-    <div class="hero-left">
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- Left: manifesto -->
+    <div>
       <div class="hero-eyebrow reveal">AricCivicLabs.Org</div>
       <h1 class="hero-h1 reveal">
-        Built for the people<br>doing the <em>actual work.</em>
+        Helping Americans<br>be more <em>American.</em>
       </h1>
       <p class="hero-sub reveal">
-        AricCivicLabs.Org builds AI-powered tools that help everyday people — employees, founders, nonprofit leaders, and teams — speak up for themselves with data. Our four product pillars cover <strong style="color:var(--p1-color)">Work-Life Enablement</strong>, <strong style="color:var(--p2-color)">Social &amp; Psychological Enablement</strong>, <strong style="color:var(--p3-color)">Workforce Management Enablement</strong>, and <strong style="color:var(--p4-color)">Civic Participation &amp; Rights Access</strong>. No fluff. No gatekeeping. Just tools that work.
+        Privacy-first tools for financial self-advocacy and civic participation — spanning <strong>workforce entry through retirement</strong>, from your paycheck to your representatives. Always honest. Always purposeful. <strong>Free where it matters most.</strong>
       </p>
       <div class="hero-actions reveal">
-        <a href="https://receipts.aricciviclabs.org" class="btn-p">Try receipts. free →</a>
-        <a href="#what-we-build" class="btn-o">What we build</a>
+        <a href="#civic" class="btn-civic">🗽 Know your rights — free</a>
+        <a href="#tools" class="btn-ghost">Know your worth →</a>
       </div>
-    </div>
-    <div class="hero-right reveal">
-      <div class="hero-manifesto">
-        <p class="manifesto-text">
-          "There is a gap between <strong>what you do</strong> and what you can prove — and that gap costs people raises, grants, headcount, and recognition. We exist to close it."
-        </p>
-        <div class="manifesto-attr">AricCivicLabs.Org — founding principle</div>
-        <div class="manifesto-tags">
-          <span class="mtag" style="background:rgba(107,78,255,.15);color:var(--c5);border-color:rgba(107,78,255,.3)">AI-powered</span>
-          <span class="mtag" style="background:rgba(42,157,143,.12);color:var(--c3);border-color:rgba(42,157,143,.25)">Free to use</span>
-          <span class="mtag" style="background:rgba(244,162,97,.12);color:var(--c2);border-color:rgba(244,162,97,.25)">No account needed</span>
-          <span class="mtag" style="background:rgba(230,57,70,.12);color:var(--c1);border-color:rgba(230,57,70,.25)">Private by design</span>
+      <div class="hero-stats reveal">
+        <div>
+          <div class="hero-stat-val">4</div>
+          <div class="hero-stat-label">Pillars of enablement</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">12+</div>
+          <div class="hero-stat-label">Live tools &amp; calculators</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">537</div>
+          <div class="hero-stat-label">Representatives indexed</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">$0</div>
+          <div class="hero-stat-label">For civic participation</div>
         </div>
       </div>
     </div>
+
+    <!-- Right: founding quote -->
+    <div class="hero-panel reveal">
+      <div class="panel-label">Founding principle</div>
+      <p class="panel-quote">
+        "There is a gap between <strong>what you do</strong> and what you can prove — and that gap costs people raises, grants, headcount, and recognition. <strong>We exist to close it.</strong>"
+      </p>
+      <div class="panel-attr">Aric Roberts · AricCivicLabs.Org</div>
+      <div class="panel-tags">
+        <span class="ptag" style="background:rgba(92,158,232,.15);color:var(--p1);border-color:rgba(92,158,232,.3)">AI-powered</span>
+        <span class="ptag" style="background:rgba(61,122,87,.15);color:#7EC9A0;border-color:rgba(61,122,87,.35)">Civic-first</span>
+        <span class="ptag" style="background:rgba(246,239,220,.08);color:var(--parchment);border-color:rgba(246,239,220,.2)">No account needed</span>
+        <span class="ptag" style="background:rgba(168,65,47,.18);color:#E8887A;border-color:rgba(168,65,47,.35)">Private by design</span>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
-<!-- ═══════════════════════════════════════════════
-     WHAT WE BUILD — Three Pillar Structure
-     ═══════════════════════════════════════════════ -->
-<section class="pillars-section" id="what-we-build">
-  <div class="pillars-inner">
-    <div class="pillars-label reveal">What we build</div>
-    <h2 class="pillars-h2 reveal">Four pillars.<br><em>One mission.</em></h2>
-    <p class="pillars-intro reveal">Every tool we build serves a person navigating a system that wasn't designed with them in mind. We organize our work into four interconnected pillars — each one a different kind of enablement.</p>
+<!-- ═══════════════════════════════════════
+     PILLAR 4 — CIVIC PARTICIPATION (Main Focus)
+     ═══════════════════════════════════════ -->
+<section class="civic" id="civic">
+  <div class="civic-inner">
 
-    <!-- ─────────────────────────────────────────
-         PILLAR 1 — Work-Life Enablement
-         ───────────────────────────────────────── -->
-    <div class="pillar-block reveal">
+    <div class="civic-eyebrow reveal">Pillar IV — Civic Participation &amp; Rights Access</div>
+    <h2 class="civic-h2 reveal">
+      Know your rights.<br>Find your advocates.<br><em>Make your voice heard.</em>
+    </h2>
+    <p class="civic-sub reveal">
+      Four tools to help you exercise the full weight of your citizenship — from finding the organizations fighting on your behalf, to reaching the people elected to represent you. Fully verified. No agenda. Always nonpartisan.
+    </p>
+    <div class="civic-free-badge reveal">🗽 Always free · No account · No paywall · No ads</div>
+
+    <div class="civic-articles reveal">
+
+      <!-- Article I: Rights Connector -->
+      <div class="civic-article">
+        <div class="article-roman">Article I.</div>
+        <img src="civil_rights_connector.png" class="article-seal" alt="Rights Connector"/>
+        <h3 class="article-title">Rights Connector</h3>
+        <p class="article-desc">Find organizations matched to your situation — not a wall of logos. Fourteen categories covering everything from worker protections to housing rights, immigration to disability access. Human-verified. All 50 states.</p>
+        <a href="https://civic.aricciviclabs.org/rights_connector.html" class="article-link">Open Rights Connector →</a>
+      </div>
+
+      <!-- Article II: Defending the Constitution -->
+      <div class="civic-article">
+        <div class="article-roman">Article II.</div>
+        <img src="defend_the_constitution.png" class="article-seal" alt="Defending the Constitution"/>
+        <h3 class="article-title">Defending the Constitution</h3>
+        <p class="article-desc">Twenty organizations litigating constitutional questions — shown across the full political spectrum. Left, right, and cross-ideological. Because the Constitution does not belong to one party, and neither does this page.</p>
+        <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html" class="article-link">Explore the full spectrum →</a>
+      </div>
+
+      <!-- Article III: Communities Before Shareholders -->
+      <div class="civic-article">
+        <div class="article-roman">Article III.</div>
+        <img src="communities_before_shareholders.png" class="article-seal" alt="Communities Before Shareholders"/>
+        <h3 class="article-title">Communities Before Shareholders</h3>
+        <p class="article-desc">Organizations working against corporate consolidation and for local economic power — from antimonopoly researchers to rural advocates to small-business coalitions. Left-leaning and right-leaning groups, both represented.</p>
+        <a href="https://civic.aricciviclabs.org/rights_connector_communities.html" class="article-link">See the organizations →</a>
+      </div>
+
+      <!-- Article IV: Representative Connector -->
+      <div class="civic-article">
+        <div class="article-roman">Article IV.</div>
+        <img src="representative_connector.png" class="article-seal" alt="Representative Connector"/>
+        <h3 class="article-title">Representative Connector</h3>
+        <p class="article-desc">All 537 of your elected federal representatives — searchable by state, chamber, and party. Direct contact links so you can actually reach them. Because participation does not end at the ballot box.</p>
+        <a href="https://civic.aricciviclabs.org/rights_connector_reps.html" class="article-link">Find your representatives →</a>
+      </div>
+
+    </div>
+
+    <div class="civic-note reveal">
+      Unlike the rest of the suite, <strong>this pillar is the mission — not the monetization.</strong> Revenue from Pillars 1–3 is what keeps Pillar 4 permanently free. No sponsor influences which organizations are listed. All data is human-verified, never AI-generated.
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PILLARS 1–3 — THE TOOLS
+     ═══════════════════════════════════════ -->
+<section class="tools" id="tools">
+  <div class="tools-inner">
+
+    <div class="tools-eyebrow reveal">Pillars I–III — The tools that fund the mission</div>
+    <h2 class="tools-h2 reveal">
+      From your first paycheck<br>to your <em>last.</em>
+    </h2>
+    <p class="tools-sub reveal">AI-powered tools for every stage of your career and working life — and every role you step into. Life-enhancing calculators, coaches, and intelligence engines. Know your worth. Prove it. Use it.</p>
+
+    <!-- ─── PILLAR 1 — WORK-LIFE ─── -->
+    <div class="pillar reveal">
       <div class="pillar-header">
-        <span class="pillar-number">01</span>
-        <span class="pillar-badge" style="background:var(--p1-bg);color:var(--p1-color);border-color:var(--p1-border)">
-          💼 Work-Life Enablement
-        </span>
+        <span class="pillar-num">01</span>
+        <span class="pillar-label" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">💼 Work-Life Enablement</span>
         <span class="pillar-tagline">Know your worth. Prove it. Use it.</span>
       </div>
 
-      <!-- Top row: receipts. + Transitions (equal weight) -->
-      <div class="product-grid cols-2" style="margin-bottom:1rem">
+      <div class="p-grid p-grid-2" style="margin-bottom:1rem">
 
         <!-- receipts. -->
-        <div class="product-card p1-card">
-          <div class="product-card-top">
+        <div class="p-card" style="border-color:rgba(92,158,232,.12)">
+          <div class="p-card-top">
             <div>
-              <div class="product-title">
-                receipts.
-                <span class="build-badge badge-live">Live now</span>
-              </div>
+              <div class="p-card-title">receipts.<span class="badge-live">Live</span></div>
             </div>
-            <img src="receipts_icon.png" alt="receipts." style="height:40px;width:40px;border-radius:10px;flex-shrink:0">
+            <img src="receipts_icon.png" class="p-icon" alt="receipts."/>
           </div>
-          <p class="product-desc">An AI-powered ROI proof engine with four versions — Individual, Small Business, Nonprofit, and Teams. Calculates your real dollar impact, benchmarks your salary, and exports raise letters, grant narratives, and team reports that open doors.</p>
-          <div class="subproducts">
-            <a href="https://receipts.aricciviclabs.org/roi_v1_individual.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">v1 Individual</a>
-            <a href="https://receipts.aricciviclabs.org/roi_v2_smallbusiness.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">v2 Small Biz</a>
-            <a href="https://receipts.aricciviclabs.org/roi_v3_nonprofit.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">v3 Nonprofit</a>
-            <a href="https://receipts.aricciviclabs.org/roi_v4_teams.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">v4 Teams</a>
+          <p class="p-card-desc">An AI-powered ROI proof engine — four versions that meet you exactly where you are. Quantify your real dollar impact, benchmark your salary against your industry, and export the documents that open doors: raise letters, grant narratives, team reports, board packets.</p>
+          <div class="p-tags">
+            <a href="https://receipts.aricciviclabs.org/roi_v1_individual.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">v1 Individual</a>
+            <a href="https://receipts.aricciviclabs.org/roi_v2_smallbusiness.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">v2 Small Business</a>
+            <a href="https://receipts.aricciviclabs.org/roi_v3_nonprofit.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">v3 Nonprofit</a>
+            <a href="https://receipts.aricciviclabs.org/roi_v4_teams.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">v4 Teams</a>
           </div>
-          <a href="https://receipts.aricciviclabs.org" class="product-link" style="color:var(--p1-color)">Open receipts. →</a>
+          <a href="https://receipts.aricciviclabs.org" class="p-link" style="color:var(--p1)">Open receipts. →</a>
         </div>
 
         <!-- Transitions -->
-        <div class="product-card p1-card">
-          <div class="product-card-top">
+        <div class="p-card" style="border-color:rgba(92,158,232,.12)">
+          <div class="p-card-top">
             <div>
-              <div class="product-title">
-                Transitions
-                <span class="build-badge badge-live">Live now</span>
-              </div>
+              <div class="p-card-title">Transitions<span class="badge-live">Live</span></div>
             </div>
-            <img src="transitions_icon.png" alt="Transitions" style="height:40px;width:40px;border-radius:10px;flex-shrink:0">
+            <img src="transitions_icon.png" class="p-icon" alt="Transitions"/>
           </div>
-          <p class="product-desc">Six tools for every career financial moment — workforce entry, re-entry, exit and retirement planning, equity building, career change, and path comparison. Each tool surfaces your real numbers and helps you act on them.</p>
-          <div class="subproducts">
-            <a href="https://transitions.aricciviclabs.org/entry_tool.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">Entry</a>
-            <a href="https://transitions.aricciviclabs.org/reentry_tool.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">Re-entry</a>
-            <a href="https://transitions.aricciviclabs.org/exit_tool.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">Exit</a>
-            <a href="https://transitions.aricciviclabs.org/equity_tool.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">Equity</a>
-            <a href="https://transitions.aricciviclabs.org/change_tool.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">Change</a>
-            <a href="https://transitions.aricciviclabs.org/compare_tool.html" class="product-tag" style="background:var(--p1-bg);color:var(--p1-color);border:1px solid var(--p1-border)">Compare</a>
+          <p class="p-card-desc">Six financial planning tools for every career transition — from landing your first job to cashing out your last. Entering the workforce, rebuilding after a gap, switching fields, comparing opportunities, building equity, or heading into retirement. Every major moment has a calculator.</p>
+          <div class="p-tags">
+            <a href="https://transitions.aricciviclabs.org/entry_tool.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">Entry</a>
+            <a href="https://transitions.aricciviclabs.org/reentry_tool.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">Re-entry</a>
+            <a href="https://transitions.aricciviclabs.org/change_tool.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">Change</a>
+            <a href="https://transitions.aricciviclabs.org/compare_tool.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">Compare</a>
+            <a href="https://transitions.aricciviclabs.org/equity_tool.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">Equity</a>
+            <a href="https://transitions.aricciviclabs.org/exit_tool.html" class="p-tag" style="background:var(--p1-bg);color:var(--p1);border-color:var(--p1-bd)">Exit &amp; Retirement</a>
           </div>
-          <a href="https://transitions.aricciviclabs.org" class="product-link" style="color:var(--p1-color)">Explore Transitions →</a>
+          <a href="https://transitions.aricciviclabs.org" class="p-link" style="color:var(--p1)">Explore Transitions →</a>
         </div>
+
       </div>
     </div><!-- /pillar 1 -->
 
-    <!-- ─────────────────────────────────────────
-         PILLAR 2 — Social & Psychological Enablement
-         ───────────────────────────────────────── -->
-    <div class="pillar-block reveal">
+    <!-- ─── PILLAR 2 — SOCIAL & PSYCHOLOGICAL ─── -->
+    <div class="pillar reveal">
       <div class="pillar-header">
-        <span class="pillar-number">02</span>
-        <span class="pillar-badge" style="background:var(--p2-bg);color:var(--p2-color);border-color:var(--p2-border)">
-          🧠 Social &amp; Psychological Enablement
-        </span>
+        <span class="pillar-num">02</span>
+        <span class="pillar-label" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">🧠 Social &amp; Psychological Enablement</span>
         <span class="pillar-tagline">Navigate the room. Find your voice. Stay in motion.</span>
       </div>
 
-      <div class="product-grid cols-3">
+      <div class="p-grid p-grid-3">
 
         <!-- InAble -->
-        <div class="product-card p2-card">
-          <div class="product-card-top">
+        <div class="p-card" style="border-color:rgba(139,127,232,.12)">
+          <div class="p-card-top">
             <div>
-              <div class="product-title">
-                InAble
-                <span class="build-badge badge-live">Live now</span>
-              </div>
+              <div class="p-card-title">InAble<span class="badge-live">Live</span></div>
             </div>
-            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#3C3489,#1a1542);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">🧩</div>
+            <img src="optionihtmllegojoinicon.png" class="p-icon" alt="InAble"/>
           </div>
-          <p class="product-desc">Real-time social coaching for introverts — on your wrist or in your pocket. Prep before. Coach during. Debrief after. Decoder reads the moment you can't figure out. Built for people who show up even when it's hard.</p>
-          <div class="subproducts">
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Prep</span>
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Coach</span>
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Debrief</span>
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Decoder</span>
+          <p class="p-card-desc">Real-time social coaching for introverts — on your wrist or in your pocket. Prep before. Coach during. Debrief after. Decoder reads the moment you can't figure out. Built for people who show up even when it's hard.</p>
+          <div class="p-tags">
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Prep</span>
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Coach</span>
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Debrief</span>
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Decoder</span>
           </div>
-          <a href="https://inable.aricciviclabs.org" class="product-link" style="color:var(--p2-color)">Visit InAble →</a>
+          <a href="https://inable.aricciviclabs.org" class="p-link" style="color:var(--p2)">Visit InAble →</a>
         </div>
 
         <!-- Speaking Coach -->
-        <div class="product-card p2-card">
-          <div class="product-card-top">
+        <div class="p-card" style="border-color:rgba(139,127,232,.12)">
+          <div class="p-card-top">
             <div>
-              <div class="product-title">
-                Speaking Coach
-                <span class="build-badge badge-live">Live now</span>
-              </div>
+              <div class="p-card-title">Speaking Coach<span class="badge-live">Live</span></div>
             </div>
-            <div style="width:40px;height:40px;border-radius:10px;background:rgba(127,119,221,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">🎤</div>
+            <div class="p-icon-emoji" style="background:var(--p2-bg)">🎤</div>
           </div>
-          <p class="product-desc">A multi-mode AI coach for speeches, pitches, difficult conversations, interviews, and influence. Two free turns, then a $9 session unlock. Prepares your voice before InAble guides you through the live moment.</p>
-          <div class="subproducts">
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Speeches</span>
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Pitches</span>
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Interviews</span>
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Influence</span>
+          <p class="p-card-desc">A multi-mode AI coach for speeches, pitches, difficult conversations, interviews, and influence. Prepare your voice before InAble guides you through the live moment. Two free turns, then a $9 session unlock.</p>
+          <div class="p-tags">
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Speeches</span>
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Pitches</span>
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Interviews</span>
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Influence</span>
           </div>
-          <a href="https://transitions.aricciviclabs.org/speaking_coach.html" class="product-link" style="color:var(--p2-color)">Open Speaking Coach →</a>
+          <a href="https://transitions.aricciviclabs.org/speaking_coach.html" class="p-link" style="color:var(--p2)">Open Speaking Coach →</a>
         </div>
 
         <!-- Motivation Coach -->
-        <div class="product-card p2-card">
-          <div class="product-card-top">
+        <div class="p-card" style="border-color:rgba(139,127,232,.12)">
+          <div class="p-card-top">
             <div>
-              <div class="product-title">
-                Motivation Coach
-                <span class="build-badge badge-live">Live now</span>
-              </div>
+              <div class="p-card-title">Motivation Coach<span class="badge-live">Live</span></div>
             </div>
-            <div style="width:40px;height:40px;border-radius:10px;background:rgba(127,119,221,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">🔥</div>
+            <div class="p-icon-emoji" style="background:var(--p2-bg)">🔥</div>
           </div>
-          <p class="product-desc">Reflection and action planning for when the job search, the negotiation, or the career change starts to grind. Three free turns, then a $7 plan unlock. The after to InAble's during.</p>
-          <div class="subproducts">
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Reflection</span>
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Action planning</span>
-            <span class="product-tag" style="background:var(--p2-bg);color:var(--p2-color);border:1px solid var(--p2-border)">Resilience</span>
+          <p class="p-card-desc">Reflection and action planning for when the job search, negotiation, or career change starts to grind. Three free turns, then a $7 plan unlock. The after to InAble's during.</p>
+          <div class="p-tags">
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Reflection</span>
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Action planning</span>
+            <span class="p-tag" style="background:var(--p2-bg);color:var(--p2);border-color:var(--p2-bd)">Resilience</span>
           </div>
-          <a href="https://transitions.aricciviclabs.org/motivation_coach.html" class="product-link" style="color:var(--p2-color)">Open Motivation Coach →</a>
+          <a href="https://transitions.aricciviclabs.org/motivation_coach.html" class="p-link" style="color:var(--p2)">Open Motivation Coach →</a>
         </div>
 
       </div>
 
-      <!-- Pillar 2 connective note -->
-      <div style="margin-top:1rem;padding:.875rem 1.25rem;background:rgba(127,119,221,.06);border:1px solid rgba(127,119,221,.15);border-radius:10px;font-size:13px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65">
-        These three tools form a complete arc: <strong style="color:rgba(255,255,255,.75);font-weight:500">Speaking Coach</strong> prepares your voice before → <strong style="color:rgba(255,255,255,.75);font-weight:500">InAble</strong> guides you through the live moment → <strong style="color:rgba(255,255,255,.75);font-weight:500">Motivation Coach</strong> helps you recover and stay in motion after.
+      <div class="p-note" style="background:rgba(139,127,232,.06);border:1px solid rgba(139,127,232,.14)">
+        <span style="color:rgba(255,255,255,.7)">These three tools form a complete arc:</span>
+        <strong style="color:rgba(255,255,255,.85)"> Speaking Coach</strong> <span style="color:rgba(255,255,255,.45)">prepares your voice →</span>
+        <strong style="color:rgba(255,255,255,.85)"> InAble</strong> <span style="color:rgba(255,255,255,.45)">guides you through the live moment →</span>
+        <strong style="color:rgba(255,255,255,.85)"> Motivation Coach</strong> <span style="color:rgba(255,255,255,.45)">helps you recover and stay in motion after.</span>
       </div>
     </div><!-- /pillar 2 -->
 
-    <!-- ─────────────────────────────────────────
-         PILLAR 3 — Workforce Management Enablement
-         ───────────────────────────────────────── -->
-    <div class="pillar-block reveal">
+    <!-- ─── PILLAR 3 — WORKFORCE MANAGEMENT ─── -->
+    <div class="pillar reveal">
       <div class="pillar-header">
-        <span class="pillar-number">03</span>
-        <span class="pillar-badge" style="background:var(--p3-bg);color:var(--p3-color);border-color:var(--p3-border)">
-          ⚙️ Workforce Management Enablement
-        </span>
+        <span class="pillar-num">03</span>
+        <span class="pillar-label" style="background:var(--p3-bg);color:var(--p3);border-color:var(--p3-bd)">⚙️ Workforce Management Enablement</span>
         <span class="pillar-tagline">Intelligence for the practitioners shaping how work gets done.</span>
       </div>
 
-      <div class="product-grid cols-2">
+      <div class="p-grid p-grid-2">
 
         <!-- MeshForce -->
-        <div class="product-card p3-card">
-          <div class="product-card-top">
+        <div class="p-card" style="border-color:rgba(244,165,0,.12)">
+          <div class="p-card-top">
             <div>
-              <div class="product-title">
-                MeshForce
-                <span class="build-badge badge-live">Live now</span>
-              </div>
+              <div class="p-card-title">MeshForce<span class="badge-live">Live</span></div>
             </div>
-            <img src="meshforce_icon.png" alt="MeshForce" style="height:40px;width:40px;border-radius:10px;flex-shrink:0">
+            <img src="meshforce_icon.png" class="p-icon" alt="MeshForce"/>
           </div>
-          <p class="product-desc">The definitive resource registry for workforce management and enterprise capacity planning professionals navigating AI integration. 55+ tools and calculators, 120+ curated platform listings, and in-depth practitioner resources.</p>
-          <div class="subproducts">
-            <a href="https://meshforce.aricciviclabs.org/tools.html" class="product-tag" style="background:var(--p3-bg);color:var(--p3-color);border:1px solid var(--p3-border)">55+ Tools</a>
-            <a href="https://theseam.aricciviclabs.org/seam-directory.html" class="product-tag" style="background:var(--p3-bg);color:var(--p3-color);border:1px solid var(--p3-border)">Directory</a>
+          <p class="p-card-desc">The definitive resource registry for workforce management and enterprise capacity planning professionals navigating AI integration. 55+ tools and calculators. 120+ curated platform listings. In-depth practitioner resources organized for speed.</p>
+          <div class="p-tags">
+            <a href="https://meshforce.aricciviclabs.org/tools.html" class="p-tag" style="background:var(--p3-bg);color:var(--p3);border-color:var(--p3-bd)">55+ Tools</a>
+            <a href="https://theseam.aricciviclabs.org/seam-directory.html" class="p-tag" style="background:var(--p3-bg);color:var(--p3);border-color:var(--p3-bd)">Vendor Directory</a>
           </div>
-          <a href="https://meshforce.aricciviclabs.org" class="product-link" style="color:var(--p3-color)">Explore MeshForce →</a>
+          <a href="https://meshforce.aricciviclabs.org" class="p-link" style="color:var(--p3)">Explore MeshForce →</a>
         </div>
 
         <!-- The Seam -->
-        <div class="product-card p3-card">
-          <div class="product-card-top">
+        <div class="p-card" style="border-color:rgba(244,165,0,.12)">
+          <div class="p-card-top">
             <div>
-              <div class="product-title">
-                The Seam
-                <span class="build-badge badge-live">Live now</span>
-              </div>
+              <div class="p-card-title">The Seam<span class="badge-live">Live</span></div>
             </div>
-            <img src="seam_icon.png" alt="The Seam" style="height:40px;width:40px;border-radius:10px;flex-shrink:0">
+            <img src="seam_icon.png" class="p-icon" alt="The Seam"/>
           </div>
-          <p class="product-desc">A live AI-powered intelligence engine for WFM and ECP practitioners. Ask about workforce management research, best practices, AI agent deployment, capacity planning frameworks, or any WFM topic. Synthesizes current industry literature with citations.</p>
-          <div class="subproducts">
-            <span class="product-tag" style="background:var(--p3-bg);color:var(--p3-color);border:1px solid var(--p3-border)">WFM Research</span>
-            <span class="product-tag" style="background:var(--p3-bg);color:var(--p3-color);border:1px solid var(--p3-border)">AI Integration</span>
-            <span class="product-tag" style="background:var(--p3-bg);color:var(--p3-color);border:1px solid var(--p3-border)">ECP Frameworks</span>
+          <p class="p-card-desc">A live AI intelligence engine for WFM and enterprise capacity planning practitioners. Ask about workforce management research, best practices, AI agent deployment, or capacity planning frameworks. Synthesizes current industry literature with verified citations.</p>
+          <div class="p-tags">
+            <span class="p-tag" style="background:var(--p3-bg);color:var(--p3);border-color:var(--p3-bd)">WFM Research</span>
+            <span class="p-tag" style="background:var(--p3-bg);color:var(--p3);border-color:var(--p3-bd)">AI Integration</span>
+            <span class="p-tag" style="background:var(--p3-bg);color:var(--p3);border-color:var(--p3-bd)">ECP Frameworks</span>
           </div>
-          <a href="https://theseam.aricciviclabs.org/seam.html" class="product-link" style="color:var(--p3-color)">Open The Seam →</a>
+          <a href="https://theseam.aricciviclabs.org/seam.html" class="p-link" style="color:var(--p3)">Open The Seam →</a>
         </div>
 
       </div>
     </div><!-- /pillar 3 -->
 
-    <!-- ─────────────────────────────────────────
-         PILLAR 4 — Civic Participation & Rights Access
-         ───────────────────────────────────────── -->
-    <div class="pillar-block reveal">
-      <div class="pillar-header">
-        <span class="pillar-number">04</span>
-        <span class="pillar-badge" style="background:var(--p4-bg);color:var(--p4-color);border-color:var(--p4-border)">
-          🗽 Civic Participation &amp; Rights Access
-        </span>
-        <span class="pillar-tagline">Always free — find the people fighting for you.</span>
-      </div>
-
-      <div class="product-grid cols-2">
-
-        <!-- Civic Rights Connector -->
-        <div class="product-card p4-card">
-          <div class="product-card-top">
-            <div>
-              <div class="product-title">
-                Rights Connector
-                <span class="build-badge badge-live">Live now</span>
-              </div>
-            </div>
-            <a href="https://civic.aricciviclabs.org/rights_connector.html">
-              <img src="civil_rights_connector.png" alt="Civic Rights Connector" style="height:48px;width:48px;border-radius:10px;object-fit:contain;flex-shrink:0">
-            </a>
-          </div>
-          <p class="product-desc">Find organizations that can actually help with what you're dealing with — matched by situation, not a wall of logos. Always free, no account needed.</p>
-          <a href="https://civic.aricciviclabs.org/rights_connector.html" class="product-link" style="color:var(--p4-color)">Open Rights Connector →</a>
-        </div>
-
-        <!-- Defending the Constitution -->
-        <div class="product-card p4-card">
-          <div class="product-card-top">
-            <div>
-              <div class="product-title">
-                Defending the Constitution
-                <span class="build-badge badge-live">Live now</span>
-              </div>
-            </div>
-            <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html">
-              <img src="defend_the_constitution.png" alt="Defending the Constitution" style="height:48px;width:48px;border-radius:10px;object-fit:contain;flex-shrink:0">
-            </a>
-          </div>
-          <p class="product-desc">Organizations litigating constitutional questions, shown across the political spectrum — left, right, and cross-ideological — so no single group is presented as the only answer.</p>
-          <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html" class="product-link" style="color:var(--p4-color)">Explore the spectrum →</a>
-        </div>
-
-        <!-- Communities Before Shareholders -->
-        <div class="product-card p4-card">
-          <div class="product-card-top">
-            <div>
-              <div class="product-title">
-                Communities Before Shareholders
-                <span class="build-badge badge-live">Live now</span>
-              </div>
-            </div>
-            <a href="https://civic.aricciviclabs.org/rights_connector_communities.html">
-              <img src="communities_before_shareholders.png" alt="Communities Before Shareholders" style="height:48px;width:48px;border-radius:10px;object-fit:contain;flex-shrink:0">
-            </a>
-          </div>
-          <p class="product-desc">Organizations working against corporate consolidation and for local economic power — from antimonopoly researchers to small-business advocates.</p>
-          <a href="https://civic.aricciviclabs.org/rights_connector_communities.html" class="product-link" style="color:var(--p4-color)">See the organizations →</a>
-        </div>
-
-        <!-- Representative Connector -->
-        <div class="product-card p4-card">
-          <div class="product-card-top">
-            <div>
-              <div class="product-title">
-                Representative Connector
-                <span class="build-badge badge-live">Live now</span>
-              </div>
-            </div>
-            <a href="https://civic.aricciviclabs.org/rights_connector_reps.html">
-              <img src="representative_connector.png" alt="Representative Connector" style="height:48px;width:48px;border-radius:10px;object-fit:contain;flex-shrink:0">
-            </a>
-          </div>
-          <p class="product-desc">Look up your elected representatives at every level of government — federal, state, and local — and find direct contact information so you can actually reach them.</p>
-          <a href="https://civic.aricciviclabs.org/rights_connector_reps.html" class="product-link" style="color:var(--p4-color)">Find your reps →</a>
-        </div>
-
-      </div>
-
-      <!-- Pillar 4 connective note -->
-      <div style="margin-top:1rem;padding:.875rem 1.25rem;background:rgba(42,157,143,.06);border:1px solid rgba(42,157,143,.15);border-radius:10px;font-size:13px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65">
-        Unlike the rest of the suite, this pillar is the mission, not the monetization — <strong style="color:rgba(255,255,255,.75);font-weight:500">always free, no account, no paywall</strong>. Revenue from the other three pillars is what keeps this one free.
-      </div>
-    </div><!-- /pillar 4 -->
-
   </div>
 </section>
 
-<!-- THE PROBLEM -->
-<section class="problem" id="the-problem">
+<!-- ═══════════════════════════════════════
+     THE PROBLEM / MISSION
+     ═══════════════════════════════════════ -->
+<section class="problem" id="mission">
   <div class="problem-inner">
-    <div class="problem-label reveal">The problem we're solving</div>
-    <h2 class="problem-h2 reveal">Everyone has value<br>that deserves to be <em>seen.</em></h2>
+    <div class="problem-eyebrow reveal">Why any of this exists</div>
+    <h2 class="problem-h2 reveal">Everyone has value<br>that deserves to be seen.</h2>
     <div class="problem-cols">
       <div>
         <p class="problem-pull reveal">"The gap is not about personality. It's about having the tools to prove what you've already done."</p>
         <div class="cycle-box reveal">
-          <div style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.875rem">The cycle</div>
-          <div class="cycle-step"><span class="cycle-num">01</span><span class="cycle-text">You do meaningful, high-impact work — but struggle to articulate or document it</span></div>
-          <div class="cycle-step"><span class="cycle-num">02</span><span class="cycle-text">Nobody notices because you never quantified or communicated it</span></div>
-          <div class="cycle-step"><span class="cycle-num">03</span><span class="cycle-text">Raises, promotions, grants, and recognition go to those who can prove their value — not always those who create the most of it</span></div>
-          <div class="cycle-step"><span class="cycle-num">04</span><span class="cycle-text">Stagnation sets in. The gap widens. The cycle repeats.</span></div>
-          <div class="cycle-break">AricCivicLabs.Org builds tools to break this cycle — across all three enablement pillars.</div>
+          <div class="cycle-label">The cycle we break</div>
+          <div class="cycle-step">
+            <span class="cycle-n">01</span>
+            <span class="cycle-t">You do meaningful, high-impact work — but struggle to articulate or document it in numbers</span>
+          </div>
+          <div class="cycle-step">
+            <span class="cycle-n">02</span>
+            <span class="cycle-t">Nobody notices because you never quantified or communicated it</span>
+          </div>
+          <div class="cycle-step">
+            <span class="cycle-n">03</span>
+            <span class="cycle-t">Raises, promotions, grants, and recognition go to those who can prove their value — not always those who create the most of it</span>
+          </div>
+          <div class="cycle-step">
+            <span class="cycle-n">04</span>
+            <span class="cycle-t">Stagnation sets in. The gap widens. The cycle repeats.</span>
+          </div>
+          <div class="cycle-break">AricCivicLabs.Org builds tools to break this cycle — at every career stage and in every civic arena.</div>
         </div>
       </div>
       <div class="problem-body reveal">
         <p>The gap between <strong>what you actually do</strong> and <strong>what you can prove you do</strong> is one of the most consequential and least-discussed challenges in working life — and it affects almost everyone.</p>
-        <p>It affects people across every role and working style. Nonprofit leaders in grant applications. Small business owners making hiring decisions without data. Introverts who do the work but can't get heard in the room. Teams whose collective impact is never surfaced to leadership.</p>
-        <p>The tools to close this gap have historically required expensive consultants, proprietary software, or specialized expertise. <strong>We're changing that.</strong></p>
-        <p>Our tools use AI to help you translate your work into honest, defensible numbers — and then into the documents, conversations, and cases that move people and organizations forward.</p>
-        <p style="font-size:13px;color:var(--text3)">We are AricCivicLabs.Org. That means we measure our success by the impact we enable in the lives of real people — not just revenue metrics.</p>
+        <p>It affects people across every role and working style. Nonprofit leaders in grant applications. Small business owners making hiring decisions without data. Introverts who do the work but can't get heard in the room. Teams whose collective impact is never surfaced to leadership. Retirees who never fully understood what their decades of work were worth.</p>
+        <p>The tools to close this gap have historically required expensive consultants, proprietary software, or specialized expertise. <strong>We are changing that.</strong></p>
+        <p>And closing the professional gap is only half of it. Americans are also navigating civic systems — rights, representation, legal access — that were never designed to be easy. The Rights Connector pillar exists because civic participation is not a privilege. It is the whole point.</p>
+        <p style="font-size:13px;color:var(--text3)">We are AricCivicLabs.Org — a California civic-technology sole proprietorship, based in Escondido. We measure success by the impact we enable in the lives of real people, not just revenue metrics.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOUNDER -->
+<!-- ═══════════════════════════════════════
+     FOUNDER
+     ═══════════════════════════════════════ -->
 <section class="founder" id="founder">
   <div class="founder-inner">
     <div class="founder-card reveal">
       <div class="founder-left">
         <div>
-          <div class="founder-initial">A.</div>
+          <div class="founder-A">A.</div>
           <div class="founder-name">Aric Roberts</div>
           <div class="founder-role">Creator &amp; Founder</div>
-          <div style="margin-top:1.25rem;font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.2)">AricCivicLabs.Org</div>
+          <div class="founder-org">AricCivicLabs.Org</div>
         </div>
       </div>
       <div class="founder-right">
@@ -629,22 +948,22 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
         <p class="founder-quote">
           "I create great impact in many directions — but struggled to speak up for it. <strong>That leads to career stagnation,</strong> and a vicious cycle begins. I built receipts. to break that cycle for myself first. Then I realized how many people — of every personality and background — live inside the same pattern."
         </p>
-        <div class="founder-pillars">
-          <div class="fp" style="border-color:var(--c1)">
-            <div class="fp-title" style="color:var(--c1)">Honest by design</div>
-            <div class="fp-desc">Confidence weighting and attribution percentages — we'd rather give you a defensible $180k than an inflated $500k that falls apart under scrutiny.</div>
+        <div class="founder-values">
+          <div class="fv" style="border-color:var(--brick)">
+            <div class="fv-title" style="color:var(--brick)">Honest by design</div>
+            <div class="fv-desc">Confidence weighting and attribution percentages — a defensible $180k beats an inflated $500k that falls apart under scrutiny.</div>
           </div>
-          <div class="fp" style="border-color:var(--c3)">
-            <div class="fp-title" style="color:var(--c3)">Private by default</div>
-            <div class="fp-desc">No servers, no accounts, no tracking. Your data lives in your browser tab and nowhere else.</div>
+          <div class="fv" style="border-color:var(--civic-green)">
+            <div class="fv-title" style="color:#7EC9A0">Private by default</div>
+            <div class="fv-desc">No servers, no accounts, no tracking. Your data lives in your browser tab and nowhere else.</div>
           </div>
-          <div class="fp" style="border-color:var(--c5)">
-            <div class="fp-title" style="color:var(--c5)">AI as amplifier</div>
-            <div class="fp-desc">We use AI to help you find words for things you already know are true. The insight is yours.</div>
+          <div class="fv" style="border-color:var(--p1)">
+            <div class="fv-title" style="color:var(--p1)">AI as amplifier</div>
+            <div class="fv-desc">We use AI to help you find words for things you already know are true. The insight is always yours.</div>
           </div>
-          <div class="fp" style="border-color:var(--c2)">
-            <div class="fp-title" style="color:var(--c2)">For everyone</div>
-            <div class="fp-desc">Whether you are 23 or 63, early-career or executive — impact is impact, and everyone deserves to prove it.</div>
+          <div class="fv" style="border-color:var(--p3)">
+            <div class="fv-title" style="color:var(--p3)">For everyone</div>
+            <div class="fv-desc">Whether you are 23 or 63, entering the workforce or heading into retirement — impact is impact, and everyone deserves to prove it.</div>
           </div>
         </div>
       </div>
@@ -652,30 +971,35 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
   </div>
 </section>
 
-<!-- VALUES -->
+<!-- ═══════════════════════════════════════
+     VALUES
+     ═══════════════════════════════════════ -->
 <section class="values">
   <div class="values-inner">
     <div class="values-label">How we work</div>
-    <div class="values-row">
-      <div class="value-pill"><span>🔒</span> Private by design</div>
-      <div class="value-pill"><span>🌍</span> Built for everyone</div>
-      <div class="value-pill"><span>🤝</span> Civic, not just commercial</div>
-      <div class="value-pill"><span>⚖️</span> Honest numbers only</div>
-      <div class="value-pill"><span>⚡</span> AI-powered</div>
-      <div class="value-pill"><span>🚫</span> No tracking. No ads.</div>
+    <div class="values-pills">
+      <div class="vpill">🔒 Private by design</div>
+      <div class="vpill">🗽 Civic, not just commercial</div>
+      <div class="vpill">🌍 Built for everyone</div>
+      <div class="vpill">⚖️ Honest numbers only</div>
+      <div class="vpill">⚡ AI-powered</div>
+      <div class="vpill">🚫 No tracking. No ads.</div>
+      <div class="vpill">🤝 Nonpartisan always</div>
     </div>
-    <p class="value-note">Core tools are free and will remain accessible. Premium features — multi-year tracking, team collaboration, community benchmarks, and enhanced exports — will be available in paid tiers as the platform grows. We will always be clear about what is free and what is not.</p>
+    <p class="values-note">Core tools are free and will remain accessible. Premium features — AI coaching, enhanced exports, and professional-grade documents — are available via one-time or subscription unlocks. We will always be clear about what is free and what is not.</p>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ═══════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════ -->
 <section class="contact" id="contact">
   <div class="contact-inner">
-    <div class="contact-label">Get in touch</div>
+    <div class="contact-eyebrow">Get in touch</div>
     <h2 class="contact-h2">Say hello.</h2>
-    <p class="contact-sub">Ideas, partnerships, feedback, or just want to tell us how receipts. is working for you — we would love to hear it.</p>
+    <p class="contact-sub">Ideas, partnerships, feedback, or just want to tell us how a tool is working for you — we'd love to hear it.</p>
     <form class="contact-form" id="acl-form" onsubmit="aclSubmit(event)">
-      <div class="cf-grid">
+      <div class="cf-row">
         <div>
           <label class="cf-label">Name</label>
           <input name="name" class="cf-input" type="text" placeholder="Your name" required/>
@@ -696,98 +1020,109 @@ footer{background:#0a0a0a;padding:2.5rem 2rem;text-align:center}
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
 <footer>
-  <div class="footer-logo">AricCivicLabs.Org</div>
+  <img src="aricciviclabs_org_wordmark.png" alt="AricCivicLabs.Org" class="footer-wordmark"/>
 
-  <div class="footer-links" style="flex-direction:column;gap:.75rem">
-
-    <div>
-      <div class="footer-section-label">💼 Work-Life Enablement</div>
-      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center">
-        <a href="https://receipts.aricciviclabs.org">receipts.</a>
-        <a href="https://receipts.aricciviclabs.org/roi_v1_individual.html">Individual ROI</a>
-        <a href="https://receipts.aricciviclabs.org/roi_v2_smallbusiness.html">Small Biz ROI</a>
-        <a href="https://receipts.aricciviclabs.org/roi_v3_nonprofit.html">Nonprofit ROI</a>
-        <a href="https://receipts.aricciviclabs.org/roi_v4_teams.html">Teams ROI</a>
-        <a href="https://transitions.aricciviclabs.org">Transitions</a>
-        <a href="https://transitions.aricciviclabs.org/entry_tool.html">Entry</a>
-        <a href="https://transitions.aricciviclabs.org/reentry_tool.html">Re-entry</a>
-        <a href="https://transitions.aricciviclabs.org/exit_tool.html">Exit</a>
-        <a href="https://transitions.aricciviclabs.org/equity_tool.html">Equity</a>
-        <a href="https://transitions.aricciviclabs.org/change_tool.html">Change</a>
-        <a href="https://transitions.aricciviclabs.org/compare_tool.html">Compare</a>
-      </div>
+  <div class="footer-pillar-group">
+    <div class="footer-pillar-label">🗽 Civic Participation &amp; Rights Access — Always Free</div>
+    <div class="footer-links">
+      <a href="https://civic.aricciviclabs.org/rights_connector.html">Rights Connector</a>
+      <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html">Defending the Constitution</a>
+      <a href="https://civic.aricciviclabs.org/rights_connector_communities.html">Communities Before Shareholders</a>
+      <a href="https://civic.aricciviclabs.org/rights_connector_reps.html">Representative Connector</a>
     </div>
-
-    <div>
-      <div class="footer-section-label">🧠 Social &amp; Psychological Enablement</div>
-      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center">
-        <a href="https://inable.aricciviclabs.org">InAble</a>
-        <a href="https://transitions.aricciviclabs.org/speaking_coach.html">Speaking Coach</a>
-        <a href="https://transitions.aricciviclabs.org/motivation_coach.html">Motivation Coach</a>
-      </div>
-    </div>
-
-    <div>
-      <div class="footer-section-label">⚙️ Workforce Management Enablement</div>
-      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center">
-        <a href="https://meshforce.aricciviclabs.org">MeshForce</a>
-        <a href="https://meshforce.aricciviclabs.org/tools.html">55+ Tools</a>
-        <a href="https://theseam.aricciviclabs.org/seam.html">The Seam</a>
-        <a href="https://theseam.aricciviclabs.org/seam-directory.html">Directory</a>
-      </div>
-    </div>
-
-    <div>
-      <div class="footer-section-label">🗽 Civic Participation &amp; Rights Access</div>
-      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center">
-        <a href="https://civic.aricciviclabs.org/rights_connector.html">Rights Connector</a>
-        <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html">Defending the Constitution</a>
-        <a href="https://civic.aricciviclabs.org/rights_connector_communities.html">Communities Before Shareholders</a>
-        <a href="https://civic.aricciviclabs.org/rights_connector_reps.html">Representative Connector</a>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center">
-      <a href="#what-we-build">Products</a>
-      <a href="#the-problem">The problem</a>
-      <a href="#founder">Founder</a>
-      <a href="#contact">Contact</a>
-      <a href="mailto:hello@aricciviclabs.org">hello@aricciviclabs.org</a>
-    </div>
-
   </div>
 
-  <div class="footer-copy">© 2026 AricCivicLabs.Org · Civic technology for everyday people</div>
-  <div style="margin-top:.75rem"><a href="https://aricciviclabs.org/legal.html" style="font-size:11px;color:rgba(255,255,255,.3);text-decoration:none">Privacy &amp; Terms</a></div>
+  <div class="footer-pillar-group">
+    <div class="footer-pillar-label">💼 Work-Life Enablement</div>
+    <div class="footer-links">
+      <a href="https://receipts.aricciviclabs.org">receipts.</a>
+      <a href="https://receipts.aricciviclabs.org/roi_v1_individual.html">Individual ROI</a>
+      <a href="https://receipts.aricciviclabs.org/roi_v2_smallbusiness.html">Small Business ROI</a>
+      <a href="https://receipts.aricciviclabs.org/roi_v3_nonprofit.html">Nonprofit ROI</a>
+      <a href="https://receipts.aricciviclabs.org/roi_v4_teams.html">Teams ROI</a>
+      <a href="https://transitions.aricciviclabs.org">Transitions</a>
+      <a href="https://transitions.aricciviclabs.org/entry_tool.html">Entry</a>
+      <a href="https://transitions.aricciviclabs.org/reentry_tool.html">Re-entry</a>
+      <a href="https://transitions.aricciviclabs.org/exit_tool.html">Exit &amp; Retirement</a>
+      <a href="https://transitions.aricciviclabs.org/equity_tool.html">Equity</a>
+      <a href="https://transitions.aricciviclabs.org/change_tool.html">Change</a>
+      <a href="https://transitions.aricciviclabs.org/compare_tool.html">Compare</a>
+    </div>
+  </div>
+
+  <div class="footer-pillar-group">
+    <div class="footer-pillar-label">🧠 Social &amp; Psychological Enablement</div>
+    <div class="footer-links">
+      <a href="https://inable.aricciviclabs.org">InAble</a>
+      <a href="https://transitions.aricciviclabs.org/speaking_coach.html">Speaking Coach</a>
+      <a href="https://transitions.aricciviclabs.org/motivation_coach.html">Motivation Coach</a>
+    </div>
+  </div>
+
+  <div class="footer-pillar-group">
+    <div class="footer-pillar-label">⚙️ Workforce Management Enablement</div>
+    <div class="footer-links">
+      <a href="https://meshforce.aricciviclabs.org">MeshForce</a>
+      <a href="https://meshforce.aricciviclabs.org/tools.html">55+ Tools</a>
+      <a href="https://theseam.aricciviclabs.org/seam.html">The Seam</a>
+      <a href="https://theseam.aricciviclabs.org/seam-directory.html">Vendor Directory</a>
+    </div>
+  </div>
+
+  <div class="footer-pillar-group" style="margin-top:1.25rem">
+    <div class="footer-links">
+      <a href="https://aricciviclabs.org/legal.html">Privacy &amp; Terms</a>
+      <a href="mailto:hello@aricciviclabs.org">hello@aricciviclabs.org</a>
+    </div>
+  </div>
+
+  <div class="footer-copy">© 2026 AricCivicLabs.Org · Civic technology for everyday people · Escondido, California</div>
 </footer>
 
+<!-- SCRIPTS -->
 <script>
-var ro = new IntersectionObserver(function(e) {
-  e.forEach(function(x) { if (x.isIntersecting) x.target.classList.add('visible'); });
+/* Intersection observer for reveal animations */
+var ro = new IntersectionObserver(function(entries) {
+  entries.forEach(function(x) {
+    if (x.isIntersecting) x.target.classList.add('visible');
+  });
 }, { threshold: 0.05 });
 document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
 
+/* Contact form — AJAX */
 function aclSubmit(e) {
   e.preventDefault();
   var btn = document.getElementById('acl-btn');
   var status = document.getElementById('acl-status');
-  btn.textContent = 'Sending…'; btn.disabled = true;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
   fetch('https://formspree.io/f/mbdbkznw', {
     method: 'POST',
     body: new FormData(document.getElementById('acl-form')),
     headers: { 'Accept': 'application/json' }
   }).then(function(r) {
-    if (r.ok) { status.style.color = 'var(--c3)'; status.textContent = '✓ Message sent! We\'ll be in touch.'; }
-    else { status.style.color = 'var(--c1)'; status.textContent = 'Something went wrong — email hello@aricciviclabs.org directly.'; }
-    btn.textContent = 'Send message →'; btn.disabled = false;
+    if (r.ok) {
+      status.style.color = '#7EC9A0';
+      status.textContent = '✓ Message sent — we\'ll be in touch.';
+    } else {
+      status.style.color = '#E8887A';
+      status.textContent = 'Something went wrong — email hello@aricciviclabs.org directly.';
+    }
+    btn.textContent = 'Send message →';
+    btn.disabled = false;
     document.getElementById('acl-form').reset();
   }).catch(function() {
-    status.style.color = 'var(--c1)'; status.textContent = 'Network error — email hello@aricciviclabs.org directly.';
-    btn.textContent = 'Send message →'; btn.disabled = false;
+    status.style.color = '#E8887A';
+    status.textContent = 'Network error — email hello@aricciviclabs.org directly.';
+    btn.textContent = 'Send message →';
+    btn.disabled = false;
   });
 }
 </script>
+
 </body>
 </html>
