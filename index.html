@@ -504,6 +504,19 @@ nav{
 .contact-alt a:hover{color:#fff}
 
 /* ─── FOOTER ─── */
+/* ── ACL Suite Footer (org page variant) ── */
+.acl-suite-footer{padding:28px 28px 24px;background:#060810;}
+.acl-suite-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 24px;max-width:960px;margin:0 auto 20px;}
+.acl-suite-label{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:10px;}
+.acl-suite-col a{display:block;font-size:12px;font-weight:400;color:rgba(255,255,255,0.35);text-decoration:none;margin-bottom:4px;transition:color .15s;}
+.acl-suite-col a:hover{color:rgba(255,255,255,0.68);}
+.acl-suite-col a.acl-suite-primary{font-size:13px;font-weight:600;color:rgba(255,255,255,0.55);margin-bottom:7px;}
+.acl-suite-col a.acl-suite-primary:hover{color:rgba(255,255,255,0.82);}
+.acl-suite-meta{border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;display:flex;align-items:center;gap:10px;font-size:11px;color:rgba(255,255,255,0.2);max-width:960px;margin:0 auto;flex-wrap:wrap;}
+.acl-suite-meta a{color:rgba(255,255,255,0.3);text-decoration:none;transition:color .15s;}
+.acl-suite-meta a:hover{color:rgba(255,255,255,0.6);}
+.acl-m-dot{color:rgba(255,255,255,0.1);}
+@media(max-width:640px){.acl-suite-grid{grid-template-columns:1fr 1fr;}}
 footer{background:#060810;padding:3rem 2rem;text-align:center}
 .footer-wordmark{margin:0 auto 1.25rem;height:168px;width:auto;opacity:.4}
 .footer-pillar-group{margin:.875rem 0}
@@ -1029,63 +1042,56 @@ footer{background:#060810;padding:3rem 2rem;text-align:center}
      ═══════════════════════════════════════ -->
 <footer>
   <img src="aricciviclabs_org_wordmark.png" alt="AricCivicLabs.Org" class="footer-wordmark"/>
+</footer>
 
-  <div class="footer-pillar-group">
-    <div class="footer-pillar-label">🗽 Civic Participation &amp; Rights Access — Always Free</div>
-    <div class="footer-links">
-      <a href="https://civic.aricciviclabs.org/rights_connector.html">Rights Connector</a>
-      <a href="https://civic.aricciviclabs.org/rights_connector_constitution.html">Defending the Constitution</a>
-      <a href="https://civic.aricciviclabs.org/rights_connector_communities.html">Communities Before Shareholders</a>
-      <a href="https://civic.aricciviclabs.org/rights_connector_reps.html">Representative Connector</a>
+<!-- ACL Suite Footer -->
+<div class="acl-suite-footer">
+  <div class="acl-suite-grid">
+    <div class="acl-suite-col">
+      <div class="acl-suite-label">🗽 Civic &amp; Rights — Always Free</div>
+      <a href="https://aricciviclabs.org/rights_connector.html" class="acl-suite-primary">Rights Connector</a>
+      <a href="https://aricciviclabs.org/rights_connector_constitution.html">Defending the Constitution</a>
+      <a href="https://aricciviclabs.org/rights_connector_communities.html">Communities Before Shareholders</a>
+      <a href="https://aricciviclabs.org/rights_connector_reps.html">Representative Connector</a>
     </div>
-  </div>
-
-  <div class="footer-pillar-group">
-    <div class="footer-pillar-label">💼 Work-Life Enablement</div>
-    <div class="footer-links">
-      <a href="https://receipts.aricciviclabs.org">receipts.</a>
+    <div class="acl-suite-col">
+      <div class="acl-suite-label">💼 Work-Life Enablement</div>
+      <a href="https://receipts.aricciviclabs.org" class="acl-suite-primary">receipts.</a>
       <a href="https://receipts.aricciviclabs.org/roi_v1_individual.html">Individual ROI</a>
       <a href="https://receipts.aricciviclabs.org/roi_v2_smallbusiness.html">Small Business ROI</a>
       <a href="https://receipts.aricciviclabs.org/roi_v3_nonprofit.html">Nonprofit ROI</a>
       <a href="https://receipts.aricciviclabs.org/roi_v4_teams.html">Teams ROI</a>
-      <a href="https://transitions.aricciviclabs.org">Transitions</a>
+      <a href="https://transitions.aricciviclabs.org" class="acl-suite-primary" style="margin-top:8px">Transitions</a>
       <a href="https://transitions.aricciviclabs.org/entry_tool.html">Entry</a>
       <a href="https://transitions.aricciviclabs.org/reentry_tool.html">Re-entry</a>
       <a href="https://transitions.aricciviclabs.org/exit_tool.html">Exit &amp; Retirement</a>
       <a href="https://transitions.aricciviclabs.org/equity_tool.html">Equity</a>
-      <a href="https://transitions.aricciviclabs.org/change_tool.html">Change</a>
-      <a href="https://transitions.aricciviclabs.org/compare_tool.html">Compare</a>
     </div>
-  </div>
-
-  <div class="footer-pillar-group">
-    <div class="footer-pillar-label">🧠 Social &amp; Psychological Enablement</div>
-    <div class="footer-links">
-      <a href="https://inable.aricciviclabs.org">InAble</a>
+    <div class="acl-suite-col">
+      <div class="acl-suite-label">🧠 Social Enablement</div>
+      <a href="https://inable.aricciviclabs.org" class="acl-suite-primary">InAble</a>
       <a href="https://transitions.aricciviclabs.org/speaking_coach.html">Speaking Coach</a>
       <a href="https://transitions.aricciviclabs.org/motivation_coach.html">Motivation Coach</a>
     </div>
-  </div>
-
-  <div class="footer-pillar-group">
-    <div class="footer-pillar-label">⚙️ Workforce Management Enablement</div>
-    <div class="footer-links">
-      <a href="https://meshforce.aricciviclabs.org">MeshForce</a>
+    <div class="acl-suite-col">
+      <div class="acl-suite-label">⚙️ Workforce Management</div>
+      <a href="https://meshforce.aricciviclabs.org" class="acl-suite-primary">MeshForce</a>
       <a href="https://meshforce.aricciviclabs.org/tools.html">55+ Tools</a>
-      <a href="https://theseam.aricciviclabs.org/seam.html">The Seam</a>
+      <a href="https://theseam.aricciviclabs.org/seam.html" class="acl-suite-primary" style="margin-top:8px">The Seam</a>
       <a href="https://theseam.aricciviclabs.org/seam-directory.html">Vendor Directory</a>
     </div>
   </div>
-
-  <div class="footer-pillar-group" style="margin-top:1.25rem">
-    <div class="footer-links">
-      <a href="https://aricciviclabs.org/legal.html">Privacy &amp; Terms</a>
-      <a href="mailto:hello@aricciviclabs.org">hello@aricciviclabs.org</a>
-    </div>
+  <div class="acl-suite-meta">
+    <a href="https://aricciviclabs.org">AricCivicLabs.Org</a>
+    <span class="acl-m-dot">·</span>
+    <a href="https://aricciviclabs.org/legal.html">Privacy &amp; Terms</a>
+    <span class="acl-m-dot">·</span>
+    <a href="mailto:hello@aricciviclabs.org">hello@aricciviclabs.org</a>
+    <span class="acl-m-dot">·</span>
+    <span>© 2026 AricCivicLabs.Org · Civic technology for everyday people · Escondido, California</span>
   </div>
-
-  <div class="footer-copy">© 2026 AricCivicLabs.Org · Civic technology for everyday people · Escondido, California</div>
-</footer>
+</div>
+<!-- /ACL Suite Footer -->
 
 <!-- SCRIPTS -->
 <script>
