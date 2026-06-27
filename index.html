@@ -568,6 +568,18 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
   .civic-articles{grid-template-columns:1fr}
   .hero-stats{gap:1.25rem}
 }
+/* Email capture */
+.email-capture-block{--ec-accent:#1F3A5C;--ec-success:#3D7A57;--ec-error:#A8412F;background:#FFFBF1;border:1px solid #D3C193;border-radius:8px;padding:.875rem 1rem;}
+.email-capture-block .ec-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#6E5F4A;margin:0 0 8px;display:flex;align-items:center;gap:5px;}
+.email-capture-block .ec-row{display:flex;gap:7px;align-items:stretch;margin-bottom:7px;flex-wrap:wrap;}
+.email-capture-block .ec-input{flex:1;min-width:180px;font-size:13px;background:#F6EFDC;border:1px solid #D3C193;border-radius:6px;padding:7px 10px;color:#2A2018;font-family:inherit;}
+.email-capture-block .ec-input:focus{outline:none;border-color:var(--ec-accent);}
+.email-capture-block .ec-btn{font-size:12px;font-weight:600;padding:7px 14px;background:var(--ec-accent);border:none;border-radius:6px;color:#F6EFDC;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.email-capture-block .ec-btn:hover{opacity:.88;}
+.email-capture-block .ec-consent{display:flex;align-items:flex-start;gap:7px;cursor:pointer;user-select:none;border:1px solid rgba(61,122,87,0.3);border-radius:6px;padding:7px 9px;background:rgba(61,122,87,0.07);}
+.email-capture-block .ec-consent input[type=checkbox]{margin-top:2px;flex-shrink:0;accent-color:#3D7A57;cursor:pointer;}
+.email-capture-block .ec-consent span{font-size:11px;color:#6E5F4A;line-height:1.5;}
+.email-capture-block .ec-status{font-size:11px;margin-top:5px;min-height:14px;}
 </style>
 </head>
 <body>
@@ -1037,6 +1049,22 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
   </div>
 </section>
 
+<!-- EMAIL CAPTURE -->
+<div style="display:flex;justify-content:center;padding:2rem 1.5rem;">
+  <div class="email-capture-block" style="max-width:480px;width:100%;">
+    <p class="ec-label"><i class="ti ti-mail" style="font-size:12px"></i> Stay updated on AricCivicLabs tools</p>
+    <div class="ec-row">
+      <input type="email" id="ec-acl-email" class="ec-input" placeholder="you@example.com" autocomplete="email"/>
+      <button class="ec-btn" onclick="handleEmailSubmit('ec-acl-email','ec-acl-check','ec-acl-status','aricciviclabs-org')">Save</button>
+    </div>
+    <label class="ec-consent">
+      <input type="checkbox" id="ec-acl-check">
+      <span>Send me occasional updates from AricCivicLabs. Unsubscribe anytime. We never sell your data.</span>
+    </label>
+    <div class="ec-status" id="ec-acl-status"></div>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════
      FOOTER
      ═══════════════════════════════════════ -->
@@ -1095,6 +1123,34 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
 
 <!-- SCRIPTS -->
 <script>
+function captureEmail(email, optedIn, source) {
+  if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) return false;
+  email = email.trim().toLowerCase();
+  try { sessionStorage.setItem('rcpts_user_email', email); sessionStorage.setItem('rcpts_email_source', source); } catch(e) {}
+  if (optedIn) {
+    try {
+      fetch('https://epntzskzmdlfqyosscbc.supabase.co/functions/v1/subscribe', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: source })
+      });
+    } catch(e) {}
+  }
+  return true;
+}
+function handleEmailSubmit(inputId, checkId, statusId, source) {
+  var emailEl = document.getElementById(inputId);
+  var checkEl = document.getElementById(checkId);
+  var statusEl = document.getElementById(statusId);
+  if (!emailEl || !statusEl) return;
+  var email = (emailEl.value || '').trim();
+  var optedIn = checkEl ? checkEl.checked : false;
+  if (!email || email.indexOf('@') === -1) { statusEl.style.color='var(--ec-error)'; statusEl.textContent='Please enter a valid email address.'; return; }
+  var ok = captureEmail(email, optedIn, source);
+  if (!ok) { statusEl.style.color='var(--ec-error)'; statusEl.textContent='Please enter a valid email address.'; return; }
+  statusEl.style.color='var(--ec-success)';
+  statusEl.textContent = optedIn ? 'Saved \u2014 unsubscribe anytime.' : 'Got it.';
+  emailEl.value = ''; if (checkEl) checkEl.checked = false;
+}
 /* Intersection observer for reveal animations */
 var ro = new IntersectionObserver(function(entries) {
   entries.forEach(function(x) {
