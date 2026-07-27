@@ -44,6 +44,9 @@
   --p4:#3D7A57;
   --p4-bg:rgba(61,122,87,.1);
   --p4-bd:rgba(61,122,87,.3);
+  --p5:#2B8C7E;
+  --p5-bg:rgba(43,140,126,.1);
+  --p5-bd:rgba(43,140,126,.28);
 
   font-family:'DM Sans',system-ui,sans-serif;
   color-scheme:light only;
@@ -201,7 +204,7 @@ nav{
 .pillars-sub{
   font-size:14px;font-weight:300;line-height:1.8;color:var(--text2);max-width:640px;
 }
-.pillar-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}
+.pillar-grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:1.25rem;margin-top:2.5rem}
 .pillar-tile{
   background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.75rem;
   display:flex;flex-direction:column;transition:transform .2s,border-color .2s;
@@ -549,13 +552,13 @@ nav{
 /* ─── FOOTER ─── */
 /* ── ACL Suite Footer (org page variant) ── */
 .acl-suite-footer{padding:28px 28px 24px;background:var(--parchment);}
-.acl-suite-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 24px;max-width:960px;margin:0 auto 20px;}
+.acl-suite-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px 24px;max-width:1180px;margin:0 auto 20px;}
 .acl-suite-label{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(31,58,92,0.38);margin-bottom:10px;}
 .acl-suite-col a{display:block;font-size:12px;font-weight:400;color:rgba(31,58,92,0.48);text-decoration:none;margin-bottom:4px;transition:color .15s;}
 .acl-suite-col a:hover{color:rgba(31,58,92,0.82);}
 .acl-suite-col a.acl-suite-primary{font-size:13px;font-weight:600;color:rgba(31,58,92,0.68);margin-bottom:7px;}
 .acl-suite-col a.acl-suite-primary:hover{color:rgba(31,58,92,0.95);}
-.acl-suite-meta{border-top:1px solid rgba(31,58,92,0.12);padding-top:16px;display:flex;align-items:center;gap:10px;font-size:11px;color:rgba(31,58,92,0.32);max-width:960px;margin:0 auto;flex-wrap:wrap;}
+.acl-suite-meta{border-top:1px solid rgba(31,58,92,0.12);padding-top:16px;display:flex;align-items:center;gap:10px;font-size:11px;color:rgba(31,58,92,0.32);max-width:1180px;margin:0 auto;flex-wrap:wrap;}
 .acl-suite-meta a{color:rgba(31,58,92,0.38);text-decoration:none;transition:color .15s;}
 .acl-suite-meta a:hover{color:rgba(31,58,92,0.72);}
 .acl-m-dot{color:rgba(255,255,255,0.1);}
@@ -656,6 +659,7 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
     <a href="https://inable.aricciviclabs.org" class="nav-pill nav-pill-outline">InAble →</a>
     <a href="https://meshforce.aricciviclabs.org" class="nav-pill nav-pill-outline">MeshForce →</a>
     <a href="https://theseam.aricciviclabs.org" class="nav-pill nav-pill-outline">The Seam →</a>
+    <a href="https://googoo.aricciviclabs.org" class="nav-pill nav-pill-outline">goo-goo →</a>
   </div>
 </nav>
 
@@ -676,15 +680,15 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
       </p>
       <div class="hero-actions reveal">
         <a href="#civic" class="btn-civic">🗽 Know your rights — free</a>
-        <a href="#pillars" class="btn-ghost">See the four pillars →</a>
+        <a href="#pillars" class="btn-ghost">See the five pillars →</a>
       </div>
       <div class="hero-stats reveal">
         <div>
-          <div class="hero-stat-val">4</div>
+          <div class="hero-stat-val">5</div>
           <div class="hero-stat-label">Pillars of enablement</div>
         </div>
         <div>
-          <div class="hero-stat-val">12+</div>
+          <div class="hero-stat-val">14+</div>
           <div class="hero-stat-label">Live tools &amp; calculators</div>
         </div>
         <div>
@@ -721,9 +725,9 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
      ═══════════════════════════════════════ -->
 <section class="pillars-overview" id="pillars">
   <div class="pillars-inner">
-    <div class="pillars-eyebrow reveal">The four pillars</div>
+    <div class="pillars-eyebrow reveal">The five pillars</div>
     <h2 class="pillars-h2 reveal">Proving your worth, everywhere it counts.</h2>
-    <p class="pillars-sub reveal">You already know your worth. Each pillar helps you prove and communicate it in a different arena — the first three fund the fourth, permanently.</p>
+    <p class="pillars-sub reveal">You already know your worth. Each pillar helps you prove and communicate it in a different arena — the first four fund the fifth, permanently.</p>
 
     <div class="pillar-grid-4 reveal">
 
@@ -751,6 +755,14 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
         <span class="pillar-tile-link" style="color:var(--p3)">See the tools ↓</span>
       </a>
 
+      <a href="#tools" class="pillar-tile" style="border-color:rgba(43,140,126,.3)">
+        <div class="pillar-tile-icon" style="background:var(--p5-bg)">🌱</div>
+        <div class="pillar-tile-num" style="color:var(--p5)">PILLAR V</div>
+        <div class="pillar-tile-title">Health &amp; Vitality Enablement</div>
+        <p class="pillar-tile-desc">Nutrition and fitness that adapt to your real life and your real progress — not a static plan you abandon in week two.</p>
+        <span class="pillar-tile-link" style="color:var(--p5)">See the tools ↓</span>
+      </a>
+
       <a href="#civic" class="pillar-tile" style="border-color:rgba(61,122,87,.3)">
         <div class="pillar-tile-icon" style="background:var(--p4-bg)">🗽</div>
         <div class="pillar-tile-num" style="color:var(--p4)">PILLAR IV</div>
@@ -769,11 +781,11 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
 <section class="tools" id="tools">
   <div class="tools-inner">
 
-    <div class="tools-eyebrow reveal">Pillars I–III — Proving your worth, funding the mission</div>
+    <div class="tools-eyebrow reveal">Pillars I–III &amp; V — Proving your worth, funding the mission</div>
     <h2 class="tools-h2 reveal">
       From your first paycheck<br>to your <em>last.</em>
     </h2>
-    <p class="tools-sub reveal">You already know your worth. These three pillars help you prove it and communicate it — at every stage of your career, your confidence, and the workplaces you help run. Revenue from these three pillars is what keeps Pillar IV permanently free.</p>
+    <p class="tools-sub reveal">You already know your worth. These four pillars help you prove it and communicate it — at every stage of your career, your confidence, the workplaces you help run, and the body that does the work. Revenue from these four pillars is what keeps Pillar IV permanently free.</p>
 
     <!-- ─── PILLAR 1 — WORK-LIFE ─── -->
     <div class="pillar reveal">
@@ -944,10 +956,58 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
 
       </div>
 
-      <div class="bridge-note reveal">
-        You've just seen three pillars built to help you prove and communicate your worth at work. <strong>Pillar IV applies the exact same principle somewhere else: your standing as a citizen.</strong> Same idea, different arena. And it's free, because these three pillars fund it.
-      </div>
     </div><!-- /pillar 3 -->
+
+    <!-- ─── PILLAR 5 — HEALTH & VITALITY ─── -->
+    <div class="pillar reveal">
+      <div class="pillar-header">
+        <span class="pillar-num">05</span>
+        <span class="pillar-label" style="background:var(--p5-bg);color:var(--p5);border-color:var(--p5-bd)">🌱 Health &amp; Vitality Enablement</span>
+        <span class="pillar-tagline">Nutrition and fitness that adapt to your real life — not a static plan.</span>
+      </div>
+
+      <div class="p-grid p-grid-2">
+
+        <!-- goo-goo -->
+        <div class="p-card" style="border-color:rgba(43,140,126,.12)">
+          <div class="p-card-top">
+            <div>
+              <div class="p-card-title">goo-goo<span class="badge-live">Live</span></div>
+            </div>
+            <div class="p-icon-emoji" style="background:var(--p5-bg)">🍽️</div>
+          </div>
+          <p class="p-card-desc">Learns your real energy rhythm and builds your week around it, so cooking feels like a choice again. Four questions in, a full week of meals out — with a shopping list and a one-click add to your calendar. Free, private, no account.</p>
+          <div class="p-tags">
+            <span class="p-tag" style="background:var(--p5-bg);color:var(--p5);border-color:var(--p5-bd)">Energy rhythm</span>
+            <span class="p-tag" style="background:var(--p5-bg);color:var(--p5);border-color:var(--p5-bd)">Meal planning</span>
+            <span class="p-tag" style="background:var(--p5-bg);color:var(--p5);border-color:var(--p5-bd)">Shopping list</span>
+          </div>
+          <a href="https://googoo.aricciviclabs.org" class="p-link" style="color:var(--p5)">Try goo-goo →</a>
+        </div>
+
+        <!-- PlanForge -->
+        <div class="p-card" style="border-color:rgba(43,140,126,.12)">
+          <div class="p-card-top">
+            <div>
+              <div class="p-card-title">PlanForge<span class="badge-live">Live</span></div>
+            </div>
+            <div class="p-icon-emoji" style="background:var(--p5-bg)">🏋️</div>
+          </div>
+          <p class="p-card-desc">A generated, not hardcoded, 100-day workout plan that adapts weekly from your own check-ins — sessions completed, effort, resting heart rate, waist. Fall behind and it pulls back; stay consistent and it progresses you.</p>
+          <div class="p-tags">
+            <span class="p-tag" style="background:var(--p5-bg);color:var(--p5);border-color:var(--p5-bd)">Generated plans</span>
+            <span class="p-tag" style="background:var(--p5-bg);color:var(--p5);border-color:var(--p5-bd)">Adaptive engine</span>
+            <span class="p-tag" style="background:var(--p5-bg);color:var(--p5);border-color:var(--p5-bd)">Progress tracking</span>
+          </div>
+          <a href="https://googoo.aricciviclabs.org/planforge-app.html" class="p-link" style="color:var(--p5)">Open PlanForge →</a>
+        </div>
+
+      </div>
+
+      <div class="bridge-note reveal">
+        You've just seen four pillars built to help you prove and communicate your worth at work, and take care of the body that does the work. <strong>Pillar IV applies the exact same principle somewhere else: your standing as a citizen.</strong> Same idea, different arena. And it's free, because these four pillars fund it.
+      </div>
+    </div><!-- /pillar 5 -->
 
   </div>
 </section>
@@ -1207,6 +1267,11 @@ footer{background:var(--parchment);padding:3rem 2rem;text-align:center}
       <a href="https://civic.aricciviclabs.org/rights_connector_communities.html">Communities Before Shareholders</a>
       <a href="https://civic.aricciviclabs.org/rights_connector_reps.html">Representative Connector</a>
       <a href="https://civic.aricciviclabs.org/epilepsy_resources.html">Epilepsy Resources</a>
+    </div>
+    <div class="acl-suite-col">
+      <div class="acl-suite-label">🌱 Health &amp; Vitality</div>
+      <a href="https://googoo.aricciviclabs.org" class="acl-suite-primary">goo-goo</a>
+      <a href="https://googoo.aricciviclabs.org/planforge-app.html" class="acl-suite-primary" style="margin-top:8px">PlanForge</a>
     </div>
   </div>
   <div class="acl-suite-meta">
